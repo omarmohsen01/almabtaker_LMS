@@ -220,7 +220,11 @@
                             </div>
                          </a>
                          <div class="d-inline-block w-100 text-center p-3">
-                            <a class="bg-primary iq-sign-btn" href="{{ route('dashboard.logout') }}" role="button">Sign out<i class="ri-login-box-line ml-2"></i></a>
+                            {{-- <a class="bg-primary iq-sign-btn" href="{{ route('dashboard.logout') }}" role="button">Sign out<i class="ri-login-box-line ml-2"></i></a> --}}
+                            <form method="POST" action="{{ route('dashboard.logout') }}">
+                                @csrf
+                                <button type="submit" class="bg-primary iq-sign-btn">Sign out<i class="ri-login-box-line ml-2"></i></button>
+                            </form>
                          </div>
                       </div>
                    </div>

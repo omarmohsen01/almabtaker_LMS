@@ -39,4 +39,6 @@ Route::group(['middleware' => ['lang', 'auth:sanctum']], function () {
     Route::post('logout', [AccessTokenController::class, 'logout']);
     Route::get('my-account', [AccessTokenController::class, 'my_account']);
 
+    Route::post('/matches', [MatcheController::class, 'store']);
+
 });

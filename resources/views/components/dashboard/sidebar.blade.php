@@ -30,12 +30,17 @@
                    <li><a href="{{ route('dashboard.users.index') }}"><i class="las la-edit"></i>User</a></li>
                 </ul>
              </li>
-
+             <li>
+                <a href="#promo" class="iq-waves-effect" data-toggle="collapse" aria-expanded="false"><span class="ripple rippleEffect"></span><i class="las la-user-tie iq-arrow-left"></i><span>Promo Code</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
+                <ul id="promo" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle" style="">
+                   <li><a href="{{ route('dashboard.promo.index') }}"><i class="las la-foot-ball"></i>Code</a></li>
+                </ul>
+             </li>
              <li>
                 <a href="#matches" class="iq-waves-effect" data-toggle="collapse" aria-expanded="false"><span class="ripple rippleEffect"></span><i class="las la-user-tie iq-arrow-left"></i><span>Match</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
                 <ul id="matches" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle" style="">
                    <li><a href="{{ route('dashboard.matches.index') }}"><i class="las la-foot-ball"></i>Matches Ticket</a></li>
-                   <li><a href=""><i class="las la-edit"></i>Matches Booking</a></li>
+                   <li><a href="{{ route('dashboard.matche-booking.index') }}"><i class="las la-edit"></i>Matches Booking</a></li>
                 </ul>
              </li>
 
