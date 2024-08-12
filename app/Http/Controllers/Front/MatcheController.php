@@ -18,7 +18,7 @@ class MatcheController extends Controller
     use ApiTrait;
     public function index(Request $request)
     {
-        $matches=Matche::where('quantity','>','0')->paginate(10);
+        $matches=Matche::where('quantity','>','0')->get();
         if (!$matches) {
             return $this->errorResponse(
                 null,
@@ -53,7 +53,7 @@ class MatcheController extends Controller
     public function store(Request $request)
     {
 
-        // try {
+        try {
             $validator = Validator::make($request->all(), [
                 'quantity' => 'integer|min:1',
                 'matche_id' => 'required|integer|exists:matches,id',
@@ -72,12 +72,21 @@ class MatcheController extends Controller
             }
 
             if($matche){
+                $matche_booking=MatchBooking::where('matche_id',$matche->id)->where('user_id',auth()->user()->id)->first();
+                if($matche_booking){
+                    return $this->errorResponse(
+                        'you have Booked this matche before',
+                        null,
+                        $request->getLocale()
+                    );
+                }
+
                 if(isset($request->promo_code)){
                     $promoCode = PromoCode::where('code', $request->promo_code)->first();
                     $promo_user=PromoUser::where('promo_code_id',$promoCode->id)->where('user_id',auth()->user()->id)->first();
                     if($promo_user){
                         return $this->errorResponse(
-                            'You Have Used This Promo Code Before',
+                            'you have use this promo before',
                             null,
                             $request->getLocale()
                         );
@@ -105,16 +114,16 @@ class MatcheController extends Controller
                     $request->getLocale()
                 );
             }
-        // } catch (\Exception $e) {
-        //     Log::error('Error adding to cart: ' . $e->getMessage());
+        } catch (\Exception $e) {
+            Log::error('Error adding to cart: ' . $e->getMessage());
 
-        //     return $this->errorResponse(
-        //         null,
-        //         null,
-        //         $request->getLocale()
-        //     );
-        //     throw $e;
-        // }
+            return $this->errorResponse(
+                null,
+                null,
+                $request->getLocale()
+            );
+            throw $e;
+        }
 
     }
 }

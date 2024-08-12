@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Dashboard\AdminController;
 use App\Http\Controllers\Dashboard\AuthController;
+use App\Http\Controllers\Dashboard\CategoryController;
+use App\Http\Controllers\Dashboard\CountryController;
 use App\Http\Controllers\Dashboard\HomeController;
 use App\Http\Controllers\Dashboard\MatcheBookingController;
 use App\Http\Controllers\Dashboard\MatcheController;
@@ -45,6 +47,8 @@ Route::group(
             ->name('matches.reject');
         Route::resource('matche-booking',MatcheBookingController::class);
         Route::resource('promo',PromoCodeController::class);
+        Route::resource('categories',CategoryController::class);
+        Route::resource('countries',CountryController::class);
 
     });
 });

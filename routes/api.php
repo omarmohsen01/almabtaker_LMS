@@ -3,6 +3,7 @@
 use App\Http\Controllers\Front\Auth\AccessTokenController;
 use App\Http\Controllers\Front\Auth\ForgetPasswordController;
 use App\Http\Controllers\Front\MatcheController;
+use App\Http\Controllers\Front\SettingController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -27,7 +28,8 @@ Route::group(['middleware' => ['lang']], function () {
     Route::post('/forget-password/check-otp', [ForgetPasswordController::class, 'checkOtp']);
     Route::post('/forget-password/change-password', [ForgetPasswordController::class, 'changePassword']);
     /////////////////////////////zone///////////////////////////////////////
-
+    Route::get('countries',[SettingController::class,'get_countries']);
+    Route::get('categories',[SettingController::class,'get_categories']);
     /////////////////////////mtches/////////////////////////////////////////
     Route::get('/matches', [MatcheController::class, 'index']);
     Route::get('/matches/{id}', [MatcheController::class, 'show']);
@@ -38,7 +40,11 @@ Route::group(['middleware' => ['lang']], function () {
 Route::group(['middleware' => ['lang', 'auth:sanctum']], function () {
     Route::post('logout', [AccessTokenController::class, 'logout']);
     Route::get('my-account', [AccessTokenController::class, 'my_account']);
+    Route::get('/matches/{id}', [MatcheController::class, 'show']);
+    Route::get('/matches', [MatcheController::class, 'index']);
 
     Route::post('/matches', [MatcheController::class, 'store']);
+
+    Route::get('promo-codes',[SettingController::class,'get_promo_code']);
 
 });

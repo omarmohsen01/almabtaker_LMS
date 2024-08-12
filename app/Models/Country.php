@@ -16,11 +16,6 @@ class Country extends Model
         'status', 'shortcut'
     ];
 
-    public function cities()
-    {
-        return $this->hasMany(City::class);
-    }
-
     public function scopeActive($query)
     {
         return $query->where('status', '1');

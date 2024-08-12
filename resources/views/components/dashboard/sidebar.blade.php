@@ -31,6 +31,18 @@
                 </ul>
              </li>
              <li>
+                <a href="#category" class="iq-waves-effect" data-toggle="collapse" aria-expanded="false"><span class="ripple rippleEffect"></span><i class="las la-user-tie iq-arrow-left"></i><span>Category</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
+                <ul id="category" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle" style="">
+                   <li><a href="{{ route('dashboard.categories.index') }}"><i class="las la-foot-ball"></i>Main Category</a></li>
+                </ul>
+             </li>
+             <li>
+                <a href="#country" class="iq-waves-effect" data-toggle="collapse" aria-expanded="false"><span class="ripple rippleEffect"></span><i class="las la-user-tie iq-arrow-left"></i><span>Zone</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
+                <ul id="country" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle" style="">
+                   <li><a href="{{ route('dashboard.countries.index') }}"><i class="las la-foot-ball"></i>country</a></li>
+                </ul>
+             </li>
+             <li>
                 <a href="#promo" class="iq-waves-effect" data-toggle="collapse" aria-expanded="false"><span class="ripple rippleEffect"></span><i class="las la-user-tie iq-arrow-left"></i><span>Promo Code</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
                 <ul id="promo" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle" style="">
                    <li><a href="{{ route('dashboard.promo.index') }}"><i class="las la-foot-ball"></i>Code</a></li>
