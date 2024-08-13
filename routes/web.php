@@ -9,6 +9,8 @@ use App\Http\Controllers\Dashboard\MatcheBookingController;
 use App\Http\Controllers\Dashboard\MatcheController;
 use App\Http\Controllers\Dashboard\PromoCodeController;
 use App\Http\Controllers\Dashboard\UserController;
+use App\Http\Controllers\Dashboard\VisaBookingController;
+use App\Http\Controllers\Dashboard\VisaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -38,14 +40,22 @@ Route::group(
         //route for profile ['index','update']
         Route::resource('admins',AdminController::class);
         Route::resource('users',UserController::class);
+        ///////////////////matche/////////////////////////
         Route::resource('matches',MatcheController::class);
-
-
         Route::put('matche-booking/accept/{id}',[MatcheBookingController::class,'accept'])
             ->name('matches.accept');
         Route::put('matche-booking/reject/{id}',[MatcheBookingController::class,'reject'])
             ->name('matches.reject');
         Route::resource('matche-booking',MatcheBookingController::class);
+
+        ////////////////////////visa//////////////////////
+        Route::resource('visas', VisaController::class);
+        Route::put('visa-booking/accept/{id}', [VisaBookingController::class, 'accept'])
+        ->name('visas.accept');
+        Route::put('visa-booking/reject/{id}', [visaBookingController::class, 'reject'])
+        ->name('visas.reject');
+        Route::resource('visa-booking', visaBookingController::class);
+
         Route::resource('promo',PromoCodeController::class);
         Route::resource('categories',CategoryController::class);
         Route::resource('countries',CountryController::class);

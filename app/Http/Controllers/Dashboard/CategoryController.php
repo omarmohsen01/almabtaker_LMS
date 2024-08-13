@@ -15,7 +15,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories=Category::paginate(10);
+        $categories=Category::get();
         return view('dashboard.category.index',compact('categories'));
     }
 
@@ -80,8 +80,7 @@ class CategoryController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $request->validate(['title_en'=>'sometimes|string',
-                    'title_ar'=>'sometimes|string','primary_image'=>'sometimes']);
+        $request->validate(['primary_image'=>'sometimes']);
         try {
             $category=Category::findOrFail($id);
             $data=$request->except('primary_image');
@@ -100,7 +99,7 @@ class CategoryController extends Controller
             $data['image'] = $primary_path;
             $category->update($data);
             return redirect()->route('dashboard.categories.index')
-                ->with('success', 'Macth Created Successfully');
+                ->with('success', 'Category Updated Successfully');
         } catch (\Exception $e) {
             return redirect()->route('dashboard.categories.index')
                 ->with('fail', 'Something Went Wrong,Please Try Again');
