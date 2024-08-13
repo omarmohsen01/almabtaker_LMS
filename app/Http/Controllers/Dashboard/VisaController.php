@@ -23,7 +23,7 @@ class VisaController extends Controller
     public function create()
     {
         $countries=Country::all();
-        return view('dashboard.visas.create');
+        return view('dashboard.visas.create',compact('countries'));
     }
 
     /**

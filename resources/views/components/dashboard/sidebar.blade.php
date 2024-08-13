@@ -56,6 +56,22 @@
                 </ul>
              </li>
 
+             <li>
+                <a href="#visa" class="iq-waves-effect" data-toggle="collapse" aria-expanded="false"><span class="ripple rippleEffect"></span><i class="las la-user-tie iq-arrow-left"></i><span>Visa</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
+                <ul id="visa" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle" style="">
+                   <li><a href="{{ route('dashboard.visas.index') }}"><i class="las la-foot-ball"></i>Visa Ticket</a></li>
+                   <li><a href="{{ route('dashboard.visa-booking.index') }}"><i class="las la-edit"></i>Visa Booking</a></li>
+                </ul>
+             </li>
+
+             <li>
+                <a href="#parties" class="iq-waves-effect" data-toggle="collapse" aria-expanded="false"><span class="ripple rippleEffect"></span><i class="las la-user-tie iq-arrow-left"></i><span>Party</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
+                <ul id="parties" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle" style="">
+                   <li><a href="{{ route('dashboard.parties.index') }}"><i class="las la-foot-ball"></i>Parties Ticket</a></li>
+                   <li><a href="{{ route('dashboard.parties-booking.index') }}"><i class="las la-edit"></i>Parties Booking</a></li>
+                </ul>
+             </li>
+
              {{-- <li>
                 <a href="#ui-elements" class="iq-waves-effect collapsed" data-toggle="collapse" aria-expanded="false"><i class="lab la-elementor iq-arrow-left"></i><span>UI Elements</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
                 <ul id="ui-elements" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">

@@ -7,6 +7,8 @@ use App\Http\Controllers\Dashboard\CountryController;
 use App\Http\Controllers\Dashboard\HomeController;
 use App\Http\Controllers\Dashboard\MatcheBookingController;
 use App\Http\Controllers\Dashboard\MatcheController;
+use App\Http\Controllers\Dashboard\PartyBookingController;
+use App\Http\Controllers\Dashboard\PartyController;
 use App\Http\Controllers\Dashboard\PromoCodeController;
 use App\Http\Controllers\Dashboard\UserController;
 use App\Http\Controllers\Dashboard\VisaBookingController;
@@ -55,6 +57,14 @@ Route::group(
         Route::put('visa-booking/reject/{id}', [visaBookingController::class, 'reject'])
         ->name('visas.reject');
         Route::resource('visa-booking', visaBookingController::class);
+
+        ////////////////////////party//////////////////////
+        Route::resource('parties', PartyController::class);
+        Route::put('parties-booking/accept/{id}', [PartyBookingController::class, 'accept'])
+        ->name('parties.accept');
+        Route::put('parties-booking/reject/{id}', [PartyBookingController::class, 'reject'])
+        ->name('parties.reject');
+        Route::resource('parties-booking', visaBookingController::class);
 
         Route::resource('promo',PromoCodeController::class);
         Route::resource('categories',CategoryController::class);
