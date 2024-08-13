@@ -14,7 +14,7 @@ class VisaBookingController extends Controller
     public function index()
     {
         $visas_booking = VisaBooking::paginate(10);
-        return view('dashboard.visas_booking.index', compact('visas_booking'));
+        return view('dashboard.visa_booking.index', compact('visas_booking'));
     }
 
     /**

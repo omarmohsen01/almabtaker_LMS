@@ -18,7 +18,12 @@ class VisaController extends Controller
     use ApiTrait;
     public function index(Request $request)
     {
-        $visas=Visa::where('quantity','>','0')->where('country_id',$request->country_id)->get();
+        if(isset($request->country_id)){
+
+            $visas=Visa::where('quantity','>','0')->where('country_id',$request->country_id)->get();
+        }else{
+            $visas=Visa::where('quantity','>','0')->get();
+        }
         if (!$visas) {
             return $this->errorResponse(
                 null,
