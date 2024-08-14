@@ -53,9 +53,9 @@ Route::group(
         ////////////////////////visa//////////////////////
         Route::resource('visas', VisaController::class);
         Route::put('visa-booking/accept/{id}', [VisaBookingController::class, 'accept'])
-        ->name('visa.accept');
+        ->name('visa-booking.accept');
         Route::put('visa-booking/reject/{id}', [visaBookingController::class, 'reject'])
-        ->name('visa.reject');
+        ->name('visa-booking.reject');
         Route::resource('visa-booking', visaBookingController::class);
 
         ////////////////////////party//////////////////////

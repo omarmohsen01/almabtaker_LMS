@@ -20,6 +20,6 @@ class VisaBooking extends Model
 
     public function visa()
     {
-        return $this->belongsTo(Visa::class);
+        return $this->belongsTo(Visa::class,'visa_id');
     }
 }

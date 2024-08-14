@@ -7,7 +7,7 @@
                 <div class="iq-card">
                    <div class="iq-card-header d-flex justify-content-between">
                       <div class="iq-header-title">
-                         <h4 class="card-title">Visa Booking List</h4>
+                         <h4 class="card-title">Party Booking List</h4>
                       </div>
                    </div>
                    <x-dashboard.alert />
@@ -59,9 +59,9 @@
                            <thead>
                                <tr>
                                   <th></th>
-                                  <th>Title</th>
-                                  <th>Visa Type</th>
-                                  <th>Country</th>
+                                  <th>First Team X Seconed Team</th>
+                                  <th>Day</th>
+                                  <th>Stadium</th>
                                   <th>User</th>
                                   <th>quntity</th>
                                   <th>Total price</th>
@@ -70,45 +70,44 @@
                                </tr>
                            </thead>
                            <tbody>
-                            @foreach ($visas_booking as $visa_booking)
+                            @foreach ($matches_booking as $matche)
                                 <tr>
-                                    <td class="text-center"><img class="rounded img-fluid avatar-40" src="{{ asset('storage/'.$visa_booking->visa->image) }}" alt="profile"></td>
-                                    <td><b>{{ $visa_booking->visa->title_en }}</td>
-                                    <td>{{ $visa_booking->visa->visa_type }}</td>
-                                    <td>{{ $visa_booking->visa->duration }}</td>
-                                    <td>{{ $visa_booking->visa->country->title_en }}</td>
-                                    <td><span class="badge iq-bg-primary">{{ $visa_booking->user->name }}</span></td>
-                                    <td>{{ $visa_booking->quantity }}</td>
-                                    <td>{{ $visa_booking->total_price }}</td>
-                                    <td><span class="badge iq-bg-primary">{{ $visa_booking->status }}</span></td>
+                                    <td class="text-center"><img class="rounded img-fluid avatar-40" src="{{ asset('storage/'.$matche->matche->ticket_image) }}" alt="profile"></td>
+                                    <td><b>{{ $matche->matche->first_team_en }}</b><br>X<br><b>{{ $matche->matche->seconed_team_en }}</b></td>
+                                    <td>{{ $matche->matche->day }}<br>{{ $matche->matche->time }}</td>
+                                    <td>{{ $matche->matche->stadium_en }}</td>
+                                    <td><span class="badge iq-bg-primary">{{ $matche->user->name }}</span></td>
+                                    <td>{{ $matche->quantity }}</td>
+                                    <td>{{ $matche->total_price }}</td>
+                                    <td><span class="badge iq-bg-primary">{{ $matche->status }}</span></td>
                                     <td>
                                         <div class="flex align-items-center list-user-action">
                                             {{-- <a class="iq-bg-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit" href="{{ route('dashboard.matches.edit',$matche->id) }}"><i class="ri-pencil-line"></i></a> --}}
-                                            @if ($visa_booking->status==='pending')
-                                                <form method="POST" action="{{ route('dashboard.visa-booking.accept',$visa_booking->id) }}">
+                                            @if ($matche->status==='pending')
+                                                <form method="POST" action="{{ route('dashboard.matches.accept',$matche->id) }}">
                                                     @csrf
                                                     @method('PUT')
                                                     <button type="submit" class="btn btn-link" data-toggle="tooltip" data-placement="top" title="" data-original-title="Accept"><i class="ri-thumb-up-fill"></i></button>
                                                 </form>
-                                                <form method="POST" action="{{ route('dashboard.visa-booking.reject',$visa_booking->id) }}">
+                                                <form method="POST" action="{{ route('dashboard.matches.reject',$matche->id) }}">
                                                     @csrf
                                                     @method('PUT')
                                                     <button type="submit" class="btn btn-link" data-toggle="tooltip" data-placement="top" title="" data-original-title="Reject"><i class="ri-thumb-down-fill"></i></button>
                                                 </form>
-                                            @elseif ($visa_booking->status==='accepted')
-                                                <form method="POST" action="{{ route('dashboard.visa-booking.reject',$visa_booking->id) }}">
+                                            @elseif ($matche->status==='accepted')
+                                                <form method="POST" action="{{ route('dashboard.matches.reject',$matche->id) }}">
                                                     @csrf
                                                     @method('PUT')
                                                     <button type="submit" class="btn btn-link" data-toggle="tooltip" data-placement="top" title="" data-original-title="Reject"><i class="ri-thumb-down-fill"></i></button>
                                                 </form>
-                                            @elseif ($visa_booking->status==='rejected')
-                                                <form method="POST" action="{{ route('dashboard.visa-booking.accept',$visa_booking->id) }}">
+                                            @elseif ($matche->status==='rejected')
+                                                <form method="POST" action="{{ route('dashboard.matches.accept',$matche->id) }}">
                                                     @csrf
                                                     @method('PUT')
                                                     <button type="submit" class="btn btn-link" data-toggle="tooltip" data-placement="top" title="" data-original-title="Accept"><i class="ri-thumb-up-fill"></i></button>
                                                 </form>
                                             @endif
-                                            <form method="POST" action="{{ route('dashboard.visa-booking.destroy',$visa_booking->id) }}">
+                                            <form method="POST" action="{{ route('dashboard.matches.destroy',$matche->id) }}">
                                                 @csrf
                                                 @method('delete')
                                                 <button type="submit" class="btn btn-link" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"><i class="ri-delete-bin-line"></i></button>
@@ -120,7 +119,7 @@
                            </tbody>
                          </table>
                       </div>
-                         {{ $visas_booking->withQueryString()->links() }}
+                         {{ $matches_booking->withQueryString()->links() }}
                    </div>
                 </div>
           </div>

@@ -13,8 +13,6 @@ return new class extends Migration
     {
         Schema::create('tourist_groups', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
-            $table->id();
             $table->string('title_en');
             $table->string('title_ar');
             $table->string('description_en');

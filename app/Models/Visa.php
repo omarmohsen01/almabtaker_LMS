@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Visa extends Model
 {
     use HasFactory;
-    public $table = 'visa';
+    public $table = 'visas';
 
     public $fillable = [
         'title_en',

@@ -13,7 +13,7 @@ class PartyBookingController extends Controller
    public function index()
    {
        $parties_booking = PartyBooking::paginate(10);
-       return view('dashboard.parties_booking.index', compact('parties_booking'));
+       return view('dashboard.party_booking.index', compact('parties_booking'));
    }
 
    /**
