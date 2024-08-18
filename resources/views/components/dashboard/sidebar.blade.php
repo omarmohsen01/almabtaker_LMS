@@ -14,13 +14,13 @@
     <div id="sidebar-scrollbar">
        <nav class="iq-sidebar-menu">
           <ul id="iq-sidebar-toggle" class="iq-menu">
-             <li class="active">
+             {{-- <li class="active">
                 <a href="#dashboard" class="iq-waves-effect" data-toggle="collapse" aria-expanded="true"><span class="ripple rippleEffect"></span><i class="las la-home iq-arrow-left"></i><span>Dashboard</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
                 <ul id="dashboard" class="iq-submenu collapse show" data-parent="#iq-sidebar-toggle">
                    <li class="active"><a href="{{ route('dashboard.index') }}"><i class="las la-laptop-code"></i>Account Dashboard</a></li>
 
                 </ul>
-             </li>
+             </li> --}}
 
 
              <li>
@@ -40,6 +40,12 @@
                 <a href="#country" class="iq-waves-effect" data-toggle="collapse" aria-expanded="false"><span class="ripple rippleEffect"></span><i class="las la-user-tie iq-arrow-left"></i><span>Zone</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
                 <ul id="country" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle" style="">
                    <li><a href="{{ route('dashboard.countries.index') }}"><i class="las la-foot-ball"></i>country</a></li>
+                </ul>
+             </li>
+             <li>
+                <a href="#slider" class="iq-waves-effect" data-toggle="collapse" aria-expanded="false"><span class="ripple rippleEffect"></span><i class="las la-user-tie iq-arrow-left"></i><span>slider</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
+                <ul id="slider" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle" style="">
+                   <li><a href="{{ route('dashboard.sliders.index') }}"><i class="las la-foot-ball"></i>slider</a></li>
                 </ul>
              </li>
              <li>

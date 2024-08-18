@@ -10,6 +10,7 @@ use App\Http\Controllers\Dashboard\MatcheController;
 use App\Http\Controllers\Dashboard\PartyBookingController;
 use App\Http\Controllers\Dashboard\PartyController;
 use App\Http\Controllers\Dashboard\PromoCodeController;
+use App\Http\Controllers\Dashboard\SliderController;
 use App\Http\Controllers\Dashboard\UserController;
 use App\Http\Controllers\Dashboard\VisaBookingController;
 use App\Http\Controllers\Dashboard\VisaController;
@@ -38,7 +39,7 @@ Route::group(
         });
 
     Route::group(['middleware' => ['auth:admin']],function (){
-        Route::get('/',[HomeController::class,'index'])->name('index');
+        Route::resource('/',AdminController::class);
         //route for profile ['index','update']
         Route::resource('admins',AdminController::class);
         Route::resource('users',UserController::class);
@@ -69,6 +70,6 @@ Route::group(
         Route::resource('promo',PromoCodeController::class);
         Route::resource('categories',CategoryController::class);
         Route::resource('countries',CountryController::class);
-
+        Route::resource('sliders', SliderController::class);
     });
 });

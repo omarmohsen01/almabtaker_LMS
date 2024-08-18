@@ -5,6 +5,7 @@ use App\Http\Controllers\Front\Auth\ForgetPasswordController;
 use App\Http\Controllers\Front\MatcheController;
 use App\Http\Controllers\Front\PartyController;
 use App\Http\Controllers\Front\SettingController;
+use App\Http\Controllers\Front\SliderController;
 use App\Http\Controllers\Front\VisaController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -42,6 +43,8 @@ Route::group(['middleware' => ['lang']], function () {
     Route::get('/visa', [VisaController::class, 'index']);
     Route::get('/visa/{id}', [VisaController::class, 'show']);
 
+    Route::get('sliders',[SliderController::class,'index']);
+
 });
 
 Route::group(['middleware' => ['lang', 'auth:sanctum']], function () {
@@ -61,6 +64,7 @@ Route::group(['middleware' => ['lang', 'auth:sanctum']], function () {
         Route::get('/visa/{id}', [VisaController::class, 'show']);
         Route::post('/visa', [VisaController::class, 'store']);
 
+        Route::get('sliders', [SliderController::class, 'index']);
     }
     Route::get('promo-codes',[SettingController::class,'get_promo_code']);
 
