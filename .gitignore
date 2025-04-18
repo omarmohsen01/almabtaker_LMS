@@ -1,2 +1,8 @@
 *.log
 .env
+/storage/framework/
+/storage/logs/
+/public/storage
+/storage/*.key
+/vendor
+
