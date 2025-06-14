@@ -26,7 +26,8 @@ class AdditionalPageController extends Controller
             $defaultLocale = getDefaultLocale();
         }
 
-        $locale = $request->get('locale', $defaultLocale);
+        // $locale = $request->get('locale', $defaultLocale);
+        $locale = auth()->user()->language??'EN';
         storeContentLocale($locale, $settings->getTable(), $settings->id);
 
         if (!empty($settings) and !empty($settings->value)) {
@@ -101,7 +102,8 @@ class AdditionalPageController extends Controller
         $this->authorize('admin_additional_pages_footer');
 
         $newValues = $request->get('value', null);
-        $locale = $request->get('locale', getDefaultLocale());
+        // $locale = $request->get('locale', getDefaultLocale());
+        $locale = auth()->user()->language??'EN';
         $values = [];
         $settings = Setting::where('name', Setting::$footerName)->first();
 
