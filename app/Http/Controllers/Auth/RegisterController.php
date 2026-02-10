@@ -103,14 +103,17 @@ class RegisterController extends Controller
             'full_name' => 'required|string|min:3',
             'password' => 'required|string|min:6|confirmed',
             'password_confirmation' => 'required|same:password',
-            'referral_code' => 'nullable|exists:affiliates_codes,code'
+            'referral_code' => 'nullable|exists:affiliates_codes,code',
+            'certificate_additional' => 'nullable|regex:/^[124]\d{9}$/',
         ];
 
         if (!empty(getGeneralSecuritySettings('captcha_for_register'))) {
             $rules['captcha'] = 'required|captcha';
         }
 
-        return Validator::make($data, $rules, [], [
+        return Validator::make($data, $rules, [
+            'certificate_additional.regex' => trans('update.national_id_must_be_10_digits'),
+        ], [
             'mobile' => trans('auth.mobile'),
             'email' => trans('auth.email'),
             'term' => trans('update.terms'),
@@ -118,6 +121,7 @@ class RegisterController extends Controller
             'password' => trans('auth.password'),
             'password_confirmation' => trans('auth.password_repeat'),
             'referral_code' => trans('financial.referral_code'),
+            'certificate_additional' => trans('update.user_certificate_additional'),
         ]);
     }
 

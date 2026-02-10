@@ -740,7 +740,8 @@ return [
 
 // Additional Input Field
 'certificate_additional' => 'Additional data field',
-'user_certificate_additional' => 'National ID',
+'user_certificate_additional' => 'رقم الهوية الوطنية',
+'national_id_must_be_10_digits' => 'رقم الهوية الوطنية يجب أن يتكون من 10 أرقام ويبدأ بـ 1 أو 2 أو 4.',
 
 // Theme Color & Font
 "admin_template" => 'Admin Panel',

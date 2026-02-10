@@ -212,6 +212,7 @@ return [
         MoemenGaballah\Msegat\MsegatServiceProvider::class,
         Craftsys\Msg91\Msg91LaravelServiceProvider::class,
         Kreait\Laravel\Firebase\ServiceProvider::class,
+        Nelc\LaravelNelcXapiIntegration\NelcXapiServiceProvider::class,
     ],
 
     /*

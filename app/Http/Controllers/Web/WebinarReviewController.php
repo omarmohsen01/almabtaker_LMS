@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Comment;
 use App\Models\Webinar;
 use App\Models\WebinarReview;
+use App\Services\NelcXapiService;
 use Illuminate\Http\Request;
 
 class WebinarReviewController extends Controller
@@ -54,7 +55,7 @@ class WebinarReviewController extends Controller
                     $status = Comment::$active;
                 }
 
-                WebinarReview::create([
+                $webinarReview = WebinarReview::create([
                     'webinar_id' => $webinar->id,
                     'creator_id' => $user->id,
                     'content_quality' => (int)$data['content_quality'],
@@ -67,6 +68,13 @@ class WebinarReviewController extends Controller
                     'created_at' => time(),
                 ]);
 
+                // NELC xAPI: Send "rated" statement when a student rates a course
+                try {
+                    $nelcService = new NelcXapiService();
+                    $nelcService->sendRated($user, $webinar, $webinarReview);
+                } catch (\Exception $e) {
+                    \Log::error('NELC xAPI rated hook error: ' . $e->getMessage());
+                }
 
                 $notifyOptions = [
                     '[c.title]' => $webinar->title,

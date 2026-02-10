@@ -11,6 +11,7 @@ use App\Http\Controllers\Web\traits\LearningPageNoticeboardsTrait;
 use App\Models\Certificate;
 use App\Models\CourseLearningLastView;
 use App\Models\CourseNoticeboard;
+use App\Services\NelcXapiService;
 use Illuminate\Http\Request;
 
 class LearningPageController extends Controller
@@ -85,6 +86,16 @@ class LearningPageController extends Controller
             ->where('user_id', $user->id)
             ->where('webinar_id', $course->id)
             ->first();
+
+        // NELC xAPI: Send "initialized" statement on first course access
+        try {
+            if ($course->creator_id != $user->id && $course->teacher_id != $user->id && !$user->isAdmin()) {
+                $nelcService = new NelcXapiService();
+                $nelcService->sendInitialized($user, $course);
+            }
+        } catch (\Exception $e) {
+            \Log::error('NELC xAPI initialized hook error: ' . $e->getMessage());
+        }
 
         return view('web.default.course.learningPage.index', $data);
     }

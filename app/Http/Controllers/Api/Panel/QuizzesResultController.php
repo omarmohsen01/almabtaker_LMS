@@ -8,6 +8,7 @@ use App\Models\Reward;
 use App\Models\RewardAccounting;
 use App\Models\Role;
 use App\Models\WebinarChapter;
+use App\Services\NelcXapiService;
 use App\User;
 use App\Models\Webinar;
 use App\Models\Api\QuizzesResult;
@@ -269,6 +270,30 @@ class QuizzesResultController extends Controller
                     if ($quiz->certificate) {
                         $certificateReward = RewardAccounting::calculateScore(Reward::CERTIFICATE);
                         RewardAccounting::makeRewardAccounting($quizResult->user_id, $certificateReward, Reward::CERTIFICATE, $quiz->id, true);
+                    }
+
+                    // NELC xAPI: Send "attempted" statement after quiz submission
+                    try {
+                        if (in_array($quizResult->status, [QuizzesResult::$passed, QuizzesResult::$failed])) {
+                            $webinar = $quiz->webinar ? \App\Models\Webinar::find($quiz->webinar->id) : null;
+                            if ($webinar) {
+                                $nelcService = new NelcXapiService();
+                                // Use the real Quiz model
+                                $realQuiz = \App\Models\Quiz::find($quiz->id);
+                                $realResult = \App\Models\QuizzesResult::find($quizResult->id);
+                                if ($realQuiz && $realResult) {
+                                    $nelcService->sendAttempted($user, $realQuiz, $realResult, $webinar);
+
+                                    // Send progress update
+                                    $progress = $webinar->getProgress(true);
+                                    if ($progress > 0) {
+                                        $nelcService->sendProgressed($user, $webinar, $progress);
+                                    }
+                                }
+                            }
+                        }
+                    } catch (\Exception $e) {
+                        \Log::error('NELC xAPI attempted hook error: ' . $e->getMessage());
                     }
 
                     return apiResponse2(1, 'stored', trans('api.public.stored'), [

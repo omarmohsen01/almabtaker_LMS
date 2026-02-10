@@ -5,6 +5,8 @@ namespace App\Mixins\Certificate;
 use App\Models\Certificate;
 use App\Models\CertificateTemplate;
 use App\Models\UserMeta;
+use App\Models\Webinar;
+use App\Services\NelcXapiService;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
@@ -326,6 +328,17 @@ class MakeCertificate
                 '[c.title]' => $course->title,
             ];
             sendNotification('new_certificate', $notifyOptions, $user->id);
+
+            // NELC xAPI: Send "earned" statement when a new certificate is created
+            try {
+                $webinar = ($course instanceof Webinar) ? $course : Webinar::find($course->id);
+                if ($webinar) {
+                    $nelcService = new NelcXapiService();
+                    $nelcService->sendEarned($user, $certificate, $webinar);
+                }
+            } catch (\Exception $e) {
+                \Log::error('NELC xAPI earned hook error: ' . $e->getMessage());
+            }
         }
 
         return $certificate;

@@ -741,6 +741,7 @@ return [
 // Additional Input Field
 'certificate_additional' => 'Additional data field',
 'user_certificate_additional' => 'National ID',
+'national_id_must_be_10_digits' => 'The National ID must be exactly 10 digits and start with 1, 2, or 4.',
 
 // Theme Color & Font
 "admin_template" => 'Admin Panel',

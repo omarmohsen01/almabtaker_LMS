@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Mixins\Certificate\MakeCertificate;
 use App\Models\Traits\CascadeDeletes;
+use App\Services\NelcXapiService;
 use App\User;
 use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
 use Astrotomic\Translatable\Translatable;
@@ -1123,6 +1124,14 @@ class Webinar extends Model implements TranslatableContract
                 ->first();
 
             if (empty($check)) {
+                // NELC xAPI: Send "completed course" statement before certificate
+                try {
+                    $nelcService = new NelcXapiService();
+                    $nelcService->sendCompletedCourse($user, $this);
+                } catch (\Exception $e) {
+                    \Log::error('NELC xAPI completedCourse hook error: ' . $e->getMessage());
+                }
+
                 $makeCertificate = new MakeCertificate();
                 $userCertificate = $makeCertificate->saveCourseCertificate($user, $this);
 

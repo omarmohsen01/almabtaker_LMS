@@ -19,7 +19,9 @@ use App\Models\TextLesson;
 use App\Models\CourseLearning;
 use App\Models\WebinarChapter;
 use App\Models\WebinarReport;
+use App\Models\Session;
 use App\Models\Webinar;
+use App\Services\NelcXapiService;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -811,6 +813,43 @@ class WebinarController extends Controller
                         $item => $item_id,
                         'created_at' => time()
                     ]);
+
+                    // NELC xAPI: Send statements for learning status changes
+                    try {
+                        $nelcService = new NelcXapiService();
+
+                        if ($item == 'file_id') {
+                            $file = File::find($item_id);
+                            if ($file && $file->isVideo()) {
+                                $nelcService->sendWatched($user, $file, $course);
+                            } elseif ($file) {
+                                // Non-video files treated as lessons
+                                $textLesson = new TextLesson();
+                                $textLesson->id = $file->id;
+                                $textLesson->title = $file->title;
+                                $textLesson->description = $file->description ?? '';
+                                $nelcService->sendCompletedLesson($user, $textLesson, $course);
+                            }
+                        } elseif ($item == 'text_lesson_id') {
+                            $lesson = TextLesson::find($item_id);
+                            if ($lesson) {
+                                $nelcService->sendCompletedLesson($user, $lesson, $course);
+                            }
+                        } elseif ($item == 'session_id') {
+                            $session = Session::find($item_id);
+                            if ($session) {
+                                $nelcService->sendAttended($user, $session, $course);
+                            }
+                        }
+
+                        // Send progress update
+                        $progress = $course->getProgress(true);
+                        if ($progress > 0) {
+                            $nelcService->sendProgressed($user, $course, $progress);
+                        }
+                    } catch (\Exception $e) {
+                        \Log::error('NELC xAPI learningStatus hook error: ' . $e->getMessage());
+                    }
                 }
 
                 // check for certificate

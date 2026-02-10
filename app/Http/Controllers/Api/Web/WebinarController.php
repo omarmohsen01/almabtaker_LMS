@@ -9,12 +9,16 @@ use App\Http\Resources\TextLessonResource;
 use App\Http\Resources\WebinarChapterResource;
 use App\Mixins\Cashback\CashbackRules;
 use App\Models\Favorite;
+use App\Models\File;
 use App\Models\CourseLearning;
+use App\Models\Session;
+use App\Models\TextLesson;
 use App\Models\Ticket;
 use App\Models\Api\Webinar;
 use App\Models\WebinarChapter;
 use App\Models\WebinarFilterOption;
 use App\Models\WebinarReport;
+use App\Services\NelcXapiService;
 use Illuminate\Validation\Rule;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -225,6 +229,46 @@ class WebinarController extends Controller
                 $item => $item_id,
                 'created_at' => time()
             ]);
+
+            // NELC xAPI: Send statements for learning status changes
+            try {
+                $nelcService = new NelcXapiService();
+                // Load the real Webinar model (not API model) for xAPI
+                $webinarModel = \App\Models\Webinar::find($webinar_id);
+
+                if ($webinarModel) {
+                    if ($item == 'file_id') {
+                        $file = File::find($item_id);
+                        if ($file && $file->isVideo()) {
+                            $nelcService->sendWatched($user, $file, $webinarModel);
+                        } elseif ($file) {
+                            $textLesson = new TextLesson();
+                            $textLesson->id = $file->id;
+                            $textLesson->title = $file->title;
+                            $textLesson->description = $file->description ?? '';
+                            $nelcService->sendCompletedLesson($user, $textLesson, $webinarModel);
+                        }
+                    } elseif ($item == 'text_lesson_id') {
+                        $lesson = TextLesson::find($item_id);
+                        if ($lesson) {
+                            $nelcService->sendCompletedLesson($user, $lesson, $webinarModel);
+                        }
+                    } elseif ($item == 'session_id') {
+                        $session = Session::find($item_id);
+                        if ($session) {
+                            $nelcService->sendAttended($user, $session, $webinarModel);
+                        }
+                    }
+
+                    // Send progress update
+                    $progress = $webinarModel->getProgress(true);
+                    if ($progress > 0) {
+                        $nelcService->sendProgressed($user, $webinarModel, $progress);
+                    }
+                }
+            } catch (\Exception $e) {
+                \Log::error('NELC xAPI API learningStatus hook error: ' . $e->getMessage());
+            }
 
             return apiResponse2(1, 'read', trans('api.learning_status.read'));
 
