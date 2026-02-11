@@ -88,6 +88,15 @@ return [
 
     'login_failed_your_account_is_not_verified' => 'Login failed! Your email/phone not verified.',
     'logout' => 'Logout',
-    'phone' => 'Phone'
+    'phone' => 'Phone',
+
+    'national_id' => 'National ID / Iqama ID',
+    'national_id_placeholder' => 'Enter your 10-digit National ID or Iqama ID',
+    'national_id_hint' => 'Must be 10 digits starting with 1, 2, or 4.',
+    'national_id_invalid_format' => 'National ID must be 10 digits and start with 1, 2, or 4.',
+    'national_id_required_title' => 'National ID Required',
+    'national_id_required_description' => 'To comply with NELC requirements, please enter your National ID or Iqama ID before continuing.',
+    'save_national_id' => 'Save National ID',
+    'national_id_saved_successfully' => 'National ID saved successfully.',
 
 ];

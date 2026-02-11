@@ -53,6 +53,20 @@
                 @enderror
             </div>
 
+            <div class="form-group">
+                <label class="input-label">{{ trans('auth.national_id') }}</label>
+                <input type="text" name="national_id" value="{{ (!empty($user) and empty($new_user)) ? $user->national_id : old('national_id') }}"
+                       class="form-control @error('national_id') is-invalid @enderror"
+                       placeholder="{{ trans('auth.national_id_placeholder') }}"
+                       maxlength="10" pattern="[124]\d{9}" dir="ltr" required/>
+                @error('national_id')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
+                <small class="form-text text-muted">{{ trans('auth.national_id_hint') }}</small>
+            </div>
+
 
             @if(!empty($userLanguages))
                 <div class="form-group">

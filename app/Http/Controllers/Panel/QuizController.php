@@ -15,7 +15,9 @@ use App\Models\Webinar;
 use App\Models\QuizzesResult;
 use App\Models\QuizzesQuestion;
 use App\Models\QuizzesQuestionsAnswer;
+use App\Services\NelcXapiService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 
 class QuizController extends Controller
@@ -628,6 +630,28 @@ class QuizController extends Controller
                             $certificateReward = RewardAccounting::calculateScore(Reward::CERTIFICATE);
                             RewardAccounting::makeRewardAccounting($quizResult->user_id, $certificateReward, Reward::CERTIFICATE, $quiz->id, true);
                         }
+                    }
+
+                    // NELC xAPI: Send attempted + progressed
+                    try {
+                        $webinar = $quiz->webinar;
+                        if ($webinar) {
+                            $nelcService = new NelcXapiService();
+                            $maxGrade = $quiz->total_mark ?: 100;
+                            $scaledScore = $maxGrade > 0 ? round($totalMark / $maxGrade, 2) : 0;
+                            $success = ($quizResult->status == QuizzesResult::$passed);
+                            $attemptNumber = QuizzesResult::where('quiz_id', $quiz->id)->where('user_id', $user->id)->count();
+
+                            $nelcService->sendAttempted($user, $webinar, $quiz, $scaledScore, $totalMark, $maxGrade, $success, $attemptNumber);
+
+                            // Send progress
+                            $progress = $webinar->getProgress();
+                            if ($progress !== null) {
+                                $nelcService->sendProgressed($user, $webinar, (float)$progress);
+                            }
+                        }
+                    } catch (\Exception $e) {
+                        Log::error('NELC quiz hook error: ' . $e->getMessage());
                     }
 
                     return redirect()->route('quiz_status', ['quizResultId' => $quizResult]);

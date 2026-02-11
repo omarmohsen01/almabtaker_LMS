@@ -54,6 +54,7 @@
         "midtrans/midtrans-php": "^2.5",
         "moemengaballah/msegat": "^1.0",
         "myonlinestore/omnipay-klarna-checkout": "^5.0",
+        "nelc/laravel-nelc-xapi-integration": "dev-main",
         "niklasravnsborg/laravel-pdf": "^4.1",
         "omnipay/braintree": "~4.0@dev",
         "omnipay/mollie": "^5.5",
@@ -81,9 +82,7 @@
         "unisharp/laravel-filemanager": "2.7.0",
         "vonage/vonage-laravel": "^1.0",
         "vrajroham/laravel-bitpay": "^6.0",
-        "xendit/xendit-php": "^3.6",
-        "spatie/laravel-ignition": "^1.0",
-        "spatie/ignition": "^1.0"
+        "xendit/xendit-php": "^3.6"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
@@ -143,10 +142,3 @@
     "minimum-stability": "stable",
     "prefer-stable": true
 }
-
-
-
-
-
-
-

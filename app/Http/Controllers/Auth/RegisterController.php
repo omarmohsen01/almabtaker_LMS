@@ -101,6 +101,7 @@ class RegisterController extends Controller
             'email' => (($registerMethod == 'email') ? 'required' : 'nullable') . '|email|max:255|unique:users',
             'term' => 'required',
             'full_name' => 'required|string|min:3',
+            'national_id' => ['required', 'string', 'regex:/^[124]\d{9}$/'],
             'password' => 'required|string|min:6|confirmed',
             'password_confirmation' => 'required|same:password',
             'referral_code' => 'nullable|exists:affiliates_codes,code'
@@ -115,6 +116,7 @@ class RegisterController extends Controller
             'email' => trans('auth.email'),
             'term' => trans('update.terms'),
             'full_name' => trans('auth.full_name'),
+            'national_id' => trans('auth.national_id'),
             'password' => trans('auth.password'),
             'password_confirmation' => trans('auth.password_repeat'),
             'referral_code' => trans('financial.referral_code'),
@@ -162,6 +164,7 @@ class RegisterController extends Controller
             'mobile' => $data['mobile'] ?? null,
             'email' => $data['email'] ?? null,
             'full_name' => $data['full_name'],
+            'national_id' => $data['national_id'] ?? null,
             'status' => User::$pending,
             'access_content' => $accessContent,
             'password' => Hash::make($data['password']),

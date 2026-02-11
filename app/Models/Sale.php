@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Mixins\RegistrationBonus\RegistrationBonusAccounting;
 use App\Models\Observers\SaleNumberObserver;
+use App\Services\NelcXapiService;
 use Illuminate\Database\Eloquent\Model;
 
 class Sale extends Model
@@ -166,6 +167,22 @@ class Sale extends Model
         /* Registration Bonus Accounting */
         $registrationBonusAccounting = new RegistrationBonusAccounting();
         $registrationBonusAccounting->checkBonusAfterSale($orderItem->user_id);
+
+        // NELC xAPI: Send registered + initialized for course enrollment
+        try {
+            if (!empty($orderItem->webinar_id)) {
+                $buyer = $orderItem->user ?? \App\User::find($orderItem->user_id);
+                $webinar = $orderItem->webinar ?? Webinar::find($orderItem->webinar_id);
+
+                if ($buyer && $webinar) {
+                    $nelcService = new NelcXapiService();
+                    $nelcService->sendRegistered($buyer, $webinar);
+                    $nelcService->sendInitialized($buyer, $webinar);
+                }
+            }
+        } catch (\Exception $e) {
+            \Illuminate\Support\Facades\Log::error('NELC Sale hook error: ' . $e->getMessage());
+        }
 
         return $sale;
     }

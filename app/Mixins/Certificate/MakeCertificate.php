@@ -5,6 +5,8 @@ namespace App\Mixins\Certificate;
 use App\Models\Certificate;
 use App\Models\CertificateTemplate;
 use App\Models\UserMeta;
+use App\Services\NelcXapiService;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
@@ -310,6 +312,8 @@ class MakeCertificate
             ->where('student_id', $user->id)
             ->first();
 
+        $isNew = empty($certificate);
+
         $data = [
             'webinar_id' => $course->id,
             'student_id' => $user->id,
@@ -326,6 +330,17 @@ class MakeCertificate
                 '[c.title]' => $course->title,
             ];
             sendNotification('new_certificate', $notifyOptions, $user->id);
+        }
+
+        // NELC xAPI: Send completed course + earned on first certificate creation
+        if ($isNew) {
+            try {
+                $nelcService = new NelcXapiService();
+                $nelcService->sendCompletedCourse($user, $course);
+                $nelcService->sendEarned($user, $course, $certificate);
+            } catch (\Exception $e) {
+                Log::error('NELC certificate hook error: ' . $e->getMessage());
+            }
         }
 
         return $certificate;

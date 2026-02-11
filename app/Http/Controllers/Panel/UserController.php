@@ -199,6 +199,7 @@ class UserController extends Controller
                     'email' => $data['email'],
                     'full_name' => $data['full_name'],
                     'mobile' => $data['mobile'],
+                    'national_id' => $data['national_id'] ?? $user->national_id,
                     'language' => $data['language'] ?? null,
                     'timezone' => $data['timezone'] ?? null,
                     'currency' => $data['currency'] ?? null,

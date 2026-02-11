@@ -102,6 +102,7 @@ class RegisterController extends Controller
             'role_name' => Role::$user,
             'role_id' => Role::getUserRoleId(),
             $username => $data[$username],
+            'national_id' => $data['national_id'] ?? null,
             'status' => User::$pending,
             'password' => Hash::make($data['password']),
             'affiliate' => $usersAffiliateStatus,

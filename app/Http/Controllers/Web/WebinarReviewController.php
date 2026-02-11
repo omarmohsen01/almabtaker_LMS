@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\Comment;
 use App\Models\Webinar;
 use App\Models\WebinarReview;
+use App\Services\NelcXapiService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class WebinarReviewController extends Controller
 {
@@ -67,6 +69,15 @@ class WebinarReviewController extends Controller
                     'created_at' => time(),
                 ]);
 
+
+                // NELC xAPI: Send rated statement
+                try {
+                    $nelcService = new NelcXapiService();
+                    $avgRating = $rates > 0 ? $rates / 4 : 0;
+                    $nelcService->sendRated($user, $webinar, $avgRating, $data['description'] ?? '');
+                } catch (\Exception $e) {
+                    Log::error('NELC review hook error: ' . $e->getMessage());
+                }
 
                 $notifyOptions = [
                     '[c.title]' => $webinar->title,
