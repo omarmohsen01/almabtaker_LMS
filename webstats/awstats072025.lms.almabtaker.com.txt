@@ -1,0 +1,551 @@
+AWSTATS DATA FILE 7.7 (build 20161204)
+# If you remove this file, all statistics for date 202507 will be lost/reset.
+# Last config file used to build this data file was /etc/awstats/awstats.lms.almabtaker.com.conf.
+
+# Position (offset in bytes) in this file for beginning of each section for
+# direct I/O access. If you made changes somewhere in this file, you should
+# also remove completely the MAP section (AWStats will rewrite it at next
+# update).
+BEGIN_MAP 28
+POS_GENERAL 2001                
+POS_TIME 2690                
+POS_VISITOR 9469                
+POS_DAY 13398               
+POS_DOMAIN 3522                
+POS_LOGIN 3956                
+POS_ROBOT 4111                
+POS_WORMS 4692                
+POS_EMAILSENDER 4823                
+POS_EMAILRECEIVER 4966                
+POS_SESSION 13908               
+POS_SIDER 14109               
+POS_FILETYPES 5101                
+POS_DOWNLOADS 5445                
+POS_OS 5514                
+POS_BROWSER 5685                
+POS_SCREENSIZE 6432                
+POS_UNKNOWNREFERER 6506                
+POS_UNKNOWNREFERERBROWSER 7026                
+POS_ORIGIN 7290                
+POS_SEREFERRALS 7429                
+POS_PAGEREFS 7607                
+POS_SEARCHWORDS 7779                
+POS_KEYWORDS 7931                
+POS_MISC 2353                
+POS_ERRORS 7990                
+POS_CLUSTER 3812                
+POS_SIDER_404 8162                
+END_MAP
+
+# LastLine    = Date of last record processed - Last record line number in last log - Last record offset in last log - Last record signature value
+# FirstTime   = Date of first visit for history file
+# LastTime    = Date of last visit for history file
+# LastUpdate  = Date of last update - Nb of parsed records - Nb of parsed old records - Nb of parsed new records - Nb of parsed corrupted - Nb of parsed dropped
+# TotalVisits = Number of visits
+# TotalUnique = Number of unique visitors
+# MonthHostsKnown   = Number of hosts known
+# MonthHostsUnKnown = Number of hosts unknown
+BEGIN_GENERAL 8
+LastLine 20250801001043 8299 2917281 9961659845613
+FirstTime 20250714195147
+LastTime 20250731194323
+LastUpdate 20250801043455 8299 8028 268 0 2
+TotalVisits 103                 
+TotalUnique 81                  
+MonthHostsKnown 0                   
+MonthHostsUnknown 103                 
+END_GENERAL
+
+# Misc ID - Pages - Hits - Bandwidth
+BEGIN_MISC 10
+PDFSupport 0 0 0
+JavaEnabled 0 0 0
+FlashSupport 0 0 0
+WindowsMediaPlayerSupport 0 0 0
+JavascriptDisabled 0 0 0
+RealPlayerSupport 0 0 0
+AddToFavourites 0 51 0
+QuickTimeSupport 0 0 0
+TotalMisc 0 0 0
+DirectorSupport 0 0 0
+END_MISC
+
+# Hour - Pages - Hits - Bandwidth - Not viewed Pages - Not viewed Hits - Not viewed Bandwidth
+BEGIN_TIME 24
+0 12 116 4221655 12 14 112392
+1 0 0 0 16 44 466192
+2 2 2 13923 10 16 125143
+3 1 2 152502 10 47 540260
+4 0 0 96 7 19 306392
+5 0 0 48 11 27 382583
+6 88 688 24751363 15 20 1583204
+7 178 918 28175778 9 15 85914
+8 101 620 21574664 14 20 222968
+9 81 630 22564607 18 34 416585
+10 32 267 12086828 14 19 231872
+11 5 5 10222 23 37 315699
+12 212 941 30652922 44 79 1366062
+13 79 758 27375818 17 23 190312
+14 27 236 8834731 11 33 497270
+15 50 466 17040052 20 72 898576
+16 35 347 9270247 34 64 533826
+17 35 347 12810214 29 33 12011981
+18 22 230 8415837 23 38 4128669
+19 61 488 16788170 70 91 5393123
+20 33 71 2871554 24 105 2825448
+21 10 115 4337665 13 17 152481
+22 1 1 22709 7 12 70871
+23 12 116 4207923 16 37 366852
+END_TIME
+
+# Domain - Pages - Hits - Bandwidth
+# The 10 first Pages must be first (order not required for others)
+BEGIN_DOMAIN 15
+eg 768 5784 204620797
+us 164 1175 41156295
+id 112 235 3037526
+ca 13 132 4518432
+cn 5 5 114052
+de 4 4 72888
+fr 3 8 878040
+ie 2 7 694411
+br 2 2 13794
+il 1 1 5407
+nl 1 1 6367
+my 0 4 519192
+jp 0 4 519192
+es 1 1 0
+vn 1 1 22709
+END_DOMAIN
+
+# Cluster ID - Pages - Hits - Bandwidth
+BEGIN_CLUSTER 0
+END_CLUSTER
+
+# Login - Pages - Hits - Bandwidth - Last visit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_LOGIN 0
+END_LOGIN
+
+# Robot ID - Hits - Bandwidth - Last visit - Hits on robots.txt
+# The 10 first Hits must be first (order not required for others)
+BEGIN_ROBOT 12
+Googlebot/ 190 2167264 20250731231648 6
+SemrushBot/ 155 1156368 20250731230239 43
+bingbot/ 124 1851713 20250731195310 9
+baidu 76 2450481 20250723055645 0
+no_user_agent 9 0 20250723133726 0
+checker 9 204253 20250725175232 0
+bot[\s_+:,\.\;\/\\-] 8 39104 20250728013936 4
+unknown 2 110 20250718220733 2
+Baiduspider/ 2 45417 20250723055643 0
+CFNetwork 2 259596 20250726124833 0
+Googlebot\-Image/ 2 259596 20250729230337 0
+curl 2 45418 20250718161018 0
+END_ROBOT
+
+# Worm ID - Hits - Bandwidth - Last visit
+# The 5 first Hits must be first (order not required for others)
+BEGIN_WORMS 0
+END_WORMS
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first Hits must be first (order not required for others)
+BEGIN_EMAILSENDER 0
+END_EMAILSENDER
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first hits must be first (order not required for others)
+BEGIN_EMAILRECEIVER 0
+END_EMAILRECEIVER
+
+# Files type - Hits - Bandwidth - Bandwidth without compression - Bandwidth after compression
+BEGIN_FILETYPES 14
+jpg 1375 103021441 0 0
+json 111 1344416 0 0
+php74 25 173125 0 0
+png 2771 110799915 0 0
+woff2 197 4218200 0 0
+svg 626 860691 0 0
+js 1046 26316048 0 0
+phar 9 62325 0 0
+html 123 2864055 0 0
+php 1 6925 0 0
+gif 1 7300 0 0
+css 468 4030614 0 0
+Unknown 603 2418281 0 0
+phtml 8 55400 0 0
+END_FILETYPES
+
+# Downloads - Hits - Bandwidth
+BEGIN_DOWNLOADS 1
+/robots.txt 0 16 396
+END_DOWNLOADS
+
+# OS ID - Hits
+BEGIN_OS ID - Hits - Pages 7
+win10 1029 220
+linux 261 50
+win7 39 5
+Unknown 22 1
+ios_iphone 5214 560
+linuxandroid 124 17
+macosx 691 224
+END_OS
+
+# Browser ID - Hits - Pages
+BEGIN_BROWSER 34
+opera117.0.0.0 3 3
+safari18.5 414 62
+firefox141.0 235 112
+Unknown 15 1
+chrome138.0.0.0 865 213
+firefox134.0 2 2
+mozilla 3 0
+chrome107.0.0.0 1 1
+chrome113.0.0.0 5 5
+chrome138.0.7204.97 183 21
+chrome78.0.3904.62 4 4
+chrome116.0.1938.76 4 0
+chrome114.0.0.0 2 2
+chrome138.0.7204.157 1 0
+safari17.10 2 2
+chrome83.0.4103.61 18 2
+android 1 1
+safari17.5 168 39
+chrome121.0.0.0 1 1
+chrome132.0.0.0 3 3
+chrome137.0.7151.119 1 0
+chrome116.0.0.0 2 2
+chrome117.0.5938.132 113 10
+chrome137.0.0.0 11 7
+firefox120.0 3 3
+netscape5.0 21 3
+chrome125.0.6422.60 128 25
+safari9.0 1 0
+chrome120.0.0.0 1 1
+chrome138.0.7204.92 5 5
+safari 4799 498
+chrome134.0.0.0 10 10
+chrome138.0.7204.93 281 30
+chrome138.0.7204.96 74 9
+END_BROWSER
+
+# Screen size - Hits
+BEGIN_SCREENSIZE 0
+END_SCREENSIZE
+
+# Unknown referer OS - Last visit date
+BEGIN_UNKNOWNREFERER 5
+Mozilla/5.0_AppleWebKit/537.36_(KHTML,_like_Gecko;_compatible;_bingbot/2.0;__http://www.bing.com/bingbot.htm)_Chrome/116.0.1938.76_Safari/537.36 20250729022802
+WhatsApp/2.23.20.0 20250716085704
+NetworkingExtension/8621.2.5.10.10_Network/4277.122.6_iOS/18.5 20250715205233
+AliyunSecBot/Aliyun_(AliyunSecBot@service.alibaba.com) 20250728040236
+Mozilla/5.0_(compatible;_SemrushBot/7~bl;__http://www.semrush.com/bot.html) 20250727054959
+END_UNKNOWNREFERER
+
+# Unknown referer Browser - Last visit date
+BEGIN_UNKNOWNREFERERBROWSER 3
+AliyunSecBot/Aliyun_(AliyunSecBot@service.alibaba.com) 20250728040236
+NetworkingExtension/8621.2.5.10.10_Network/4277.122.6_iOS/18.5 20250715205233
+WhatsApp/2.23.20.0 20250716085704
+END_UNKNOWNREFERERBROWSER
+
+# Origin - Pages - Hits 
+BEGIN_ORIGIN 6
+From0 144 226
+From1 0 0
+From2 1 2
+From3 2 2
+From4 930 7150
+From5 0 0
+END_ORIGIN
+
+# Search engine referers ID - Pages - Hits
+BEGIN_SEREFERRALS 2
+www_google_com 1 1
+google_com 0 1
+END_SEREFERRALS
+
+# External page referers - Pages - Hits
+# The 10 first Pages must be first (order not required for others)
+BEGIN_PAGEREFS 1
+https://chatgpt.com 2 2
+END_PAGEREFS
+
+# Search keyphrases - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_SEARCHWORDS 0
+END_SEARCHWORDS
+
+# Search keywords - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_KEYWORDS 0
+END_KEYWORDS
+
+# Errors - Hits - Bandwidth
+BEGIN_ERRORS 7
+500 102 14676220
+301 30 720
+404 86 1094931
+302 43 17330
+422 2 2422751
+502 9 806292
+403 3 154155
+END_ERRORS
+
+# URL with 404 errors - Hits - Last URL referrer
+BEGIN_SIDER_404 27
+/pages/terms 7 https://lms.almabtaker.com/pages/terms
+/store/1015/new_live_system.jpg 1 -
+/assets/default/img/home/toutor_finder.svg 1 -
+/products/Advanced-microscope 1 -
+/store/1/default_images/forums/forum_section.jpg 1 -
+/store/1/image_fx_-7.jpg 1 -
+/index.php 5 -
+/public 1 -
+/users/929/profile 1 -
+/course/%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D8%AC-%D8%AA%D8%AF%D8%B1%D9%8A%D8%A8%D9%8A/file/103/download 1 -
+/meta.json 7 -
+/products 1 -
+/assets/default/img/home/circle-4.png 1 -
+/store/1016/1.jpg 1 -
+/users/1051/profile 1 -
+/store/1/default_images/website-logo.png 1 -
+/store/1/default_images/blogs/blog1.jpg 1 -
+/assets/default/img/stats/video.svg 1 -
+/subscribes/apply/Web-Design-for-Beginners 1 -
+/assets/default/img/stats/teacher.svg 1 -
+/subscribes/apply/How-to-Manage-Your-Virtual-Team 1 -
+/ 43 -
+/assets/default/img/stats/course.svg 2 -
+/users/1056/profile 1 -
+/course/Excel-from-Beginner-to-Advanced 1 -
+/subscribes/apply/The-Future-of-Energy 1 -
+/assets/default/img/stats/student.svg 1 -
+END_SIDER_404
+
+# Host - Pages - Hits - Bandwidth - Last visit date - [Start date of last visit] - [Last page of last visit]
+# [Start date of last visit] and [Last page of last visit] are saved only if session is not finished
+# The 10 first Hits must be first (order not required for others)
+BEGIN_VISITOR 103
+41.34.153.114 266 1617 55453041 20250727170059
+41.34.208.41 114 918 33050322 20250718153509
+125.165.110.204 112 235 3037526 20250729071456
+41.35.214.255 71 687 24962334 20250731154034
+196.153.82.98 55 575 21039596 20250730165721
+197.54.111.18 49 187 6441623 20250716094228
+104.197.69.115 25 128 4110625 20250718090454
+196.153.201.150 22 230 8415837 20250726131028
+196.132.65.110 22 230 8415838 20250729130052
+196.137.155.51 22 230 5037986 20250729165209
+196.132.71.106 11 115 4207914 20250729134806
+69.171.249.113 0 1 24 
+196.130.253.179 3 3 187833 20250715173511
+196.132.51.201 11 115 4207922 20250723175533
+173.252.83.3 0 1 24 
+196.132.102.226 11 115 4207919 20250728091909
+196.153.76.92 11 115 4207916 20250727182652
+72.153.153.42 19 188 6206032 20250716085806
+52.112.49.157 0 1 129798 
+91.196.152.78 1 1 198262 20250716150324
+149.57.180.74 1 1 22703 20250724145336
+45.137.77.24 1 1 0 20250718130140
+192.238.174.108 1 1 7092 20250731122900
+52.112.103.72 1 6 656815 20250716063045
+67.203.62.237 1 1 6503 20250731194323
+43.143.7.112 2 2 45418 20250719130817
+69.171.230.9 0 1 24 
+136.227.174.69 4 4 385213 20250720102214
+69.171.249.1 0 1 30 
+116.179.33.136 1 1 22711 20250721204926
+128.140.51.187 1 1 13739 20250718090336
+69.171.230.4 0 1 24 
+170.39.218.50 1 1 22963 20250726161331
+69.171.231.113 0 1 24 
+31.132.53.211 1 1 6530 20250731123944
+149.57.180.27 1 1 22712 20250720142522
+196.153.47.26 11 115 4207921 20250724171955
+45.39.59.187 1 1 13734 20250731004313
+157.180.29.204 2 2 45413 20250718145453
+72.153.231.16 18 169 5493130 20250716063137
+45.61.102.172 1 1 14226 20250731193307
+46.244.116.4 1 1 6329 20250731190803
+162.243.170.21 1 2 152508 20250722122256
+52.112.74.62 0 2 259596 
+103.196.9.202 1 10 209508 20250718090516
+205.169.39.38 10 113 4078066 20250718090616
+102.43.210.219 20 20 385560 20250714203829
+173.252.83.7 0 1 24 
+164.92.79.116 1 2 152502 20250719035915
+173.70.238.112 12 116 4207920 20250715193404
+136.227.161.226 4 4 330860 20250716063019
+136.227.181.80 2 2 252629 20250723093543
+52.123.138.236 2 5 434815 20250716062918
+173.252.87.2 0 1 24 
+88.216.102.117 1 1 7228 20250731060113
+166.88.37.180 1 1 6337 20250731125120
+69.63.189.116 0 1 24 
+196.137.60.215 6 32 3155923 20250726101514
+184.174.112.214 1 1 6001 20250731192834
+104.171.152.32 1 1 5768 20250731023317
+91.231.89.127 1 1 198262 20250716145552
+52.123.138.201 0 1 129798 
+185.236.213.240 1 1 13531 20250731193649
+137.184.100.40 1 2 152509 20250716121252
+205.169.39.210 2 18 426140 20250718090433
+5.161.204.20 1 1 22708 20250718132640
+31.132.53.103 1 1 12331 20250731123522
+102.43.22.26 17 121 4231763 20250716121234
+64.23.229.138 1 2 152508 20250720121246
+103.75.223.218 1 1 6367 20250731124305
+192.229.126.60 1 1 7045 20250731122308
+104.232.216.154 1 1 5374 20250731192451
+102.43.28.85 13 13 49982 20250716085704
+52.123.138.164 0 1 129798 
+69.171.231.115 0 1 24 
+69.63.189.43 0 1 24 
+52.112.49.196 0 2 259596 
+193.202.82.198 1 1 5407 20250718091800
+69.171.230.8 0 1 30 
+45.88.13.158 1 1 13736 20250718091728
+171.244.43.14 1 1 22709 20250718220735
+23.226.209.246 1 1 8059 20250731021558
+173.252.87.114 0 1 24 
+178.212.226.132 1 1 6880 20250731124607
+103.4.250.51 2 2 27475 20250718090326
+162.251.139.237 1 1 9646 20250731191720
+149.22.82.5 10 114 4207867 20250717213119
+159.203.103.249 1 1 13733 20250731122559
+45.145.106.164 1 1 6914 20250731060743
+149.57.180.101 1 1 22709 20250717143451
+72.153.231.20 18 176 6124849 20250723133829
+52.112.49.168 0 1 129798 
+69.171.230.114 0 2 48 
+23.230.80.95 1 1 12758 20250731194013
+156.215.8.118 11 116 4337720 20250715192238
+52.112.125.10 0 2 259596 
+43.143.60.88 2 2 45923 20250728122102
+94.156.41.244 1 1 7059 20250731124857
+196.153.14.110 11 115 4207924 20250716103034
+174.206.160.29 11 115 4207922 20250716103322
+173.252.83.112 0 1 24 
+104.253.252.54 11 116 4337720 20250718090513
+196.153.47.204 11 115 4207923 20250718144448
+END_VISITOR
+
+# Date - Pages - Hits - Bandwidth - Visits
+BEGIN_DAY 17
+20250714 20 20 385620 1
+20250715 68 533 19364978 5
+20250716 198 1315 46553383 14
+20250717 22 230 8438546 3
+20250718 81 625 21729092 16
+20250719 3 5 327766 2
+20250720 27 237 9106063 5
+20250721 12 117 4360478 2
+20250722 12 117 4360477 2
+20250723 42 413 15442360 4
+20250724 46 463 16984238 5
+20250726 185 729 24838914 5
+20250727 33 348 13013190 3
+20250728 35 347 12613604 3
+20250729 167 811 20829062 4
+20250730 77 805 29455426 5
+20250731 49 249 8376187 24
+END_DAY
+
+# Session range - Number of visits
+BEGIN_SESSION 6
+15mn-30mn 3
+30s-2mn 10
+2mn-5mn 2
+30mn-1h 7
+5mn-15mn 6
+0s-30s 75
+END_SESSION
+
+# URL - Pages - Bandwidth - Entry - Exit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_SIDER 80
+/getDefaultAvatar 444 819337 2 43
+/ 123 2864055 75 28
+/store/1/fonts/montserrat-bold.woff2 60 1168800 0 0
+/store/1/fonts/montserrat-regular.woff2 60 1150320 0 0
+/store/1/fonts/montserrat-medium.woff2 59 1137048 0 0
+/mix-manifest.json 55 3080 0 5
+/store/1/animated-header.json 54 1341252 0 0
+/laravel-filemanager/upload 17 445 0 0
+/filemanager/jsonitems 10 2974 0 0
+/classes 9 70195 1 1
+/captcha/flat 1 3925 0 0
+/categories/Design 3 139777 1 1
+/categories/Academics/Math 1 6314 0 0
+/admin/roles 1 7848 0 0
+/register 2 28272 1 1
+/store/1/fonts/Vazir-Regular.woff2 3 128232 0 0
+/categories/Health-and-Fitness 3 138095 1 3
+/course/Excel-from-Beginner-to-Advanced 2 33637 0 0
+/store/1051/cabs.phtml 1 6925 0 0
+/store/1051/cabs.phar 2 13850 0 0
+/store/1051/1.phar 7 48475 0 0
+/loginadmin 1 4749 0 0
+/categories/Academics/Science 1 6329 1 1
+/panel/webinars/purchases 1 13138 0 0
+/assets/vendors/fontawesome/webfonts/fa-solid-900.woff2 2 160296 0 0
+/login 8 65458 2 2
+/admin/students 1 10208 0 0
+/instructor-finder 4 31219 1 0
+/categories/Business/Management 1 7059 1 1
+/course/learning/Become-a-Product-Manager 2 13676 0 0
+/blog 1 6001 1 1
+/store/1051/1.php74 8 55400 0 0
+/_debugbar/assets/javascript 2 131468 0 1
+/filemanager 7 90489 0 0
+/panel/quizzes/my-results 1 10787 0 0
+/meta.json 2 84 0 0
+/products 4 26933 1 1
+/categories/Business/Business-Strategy 1 6880 1 1
+/pages/polices 5 31194 2 1
+/assets/admin/fonts/vazir/Vazir-Light.woff2 1 48552 0 0
+/blog/categories/Facilis-ea 1 5768 1 1
+/course/Become-a-Product-Manager 6 89838 1 1
+/panel/webinars/new 1 14049 0 0
+/organizations 1 6914 1 1
+/categories/Business/Communications 1 7092 1 1
+/course/getFilePath 3 268 0 0
+/assets/admin/fonts/vazir/Vazir-Medium.woff2 1 51284 0 0
+/admin/login 2 2752 1 0
+/categories/Development/Web-Development 3 21701 1 1
+/assets/vendors/fontawesome/webfonts/fa-regular-400.woff2 2 27200 0 0
+/users/1015/profile 1 9646 1 1
+/course/New-in-App-Live-System 1 12758 1 1
+/[object%20Event] 1 6925 0 0
+/assets/admin/fonts/vazir/Vazir.woff2 1 37972 0 0
+/panel/webinars 1 13709 0 0
+/admin 2 20566 0 0
+/captcha/create 1 83 0 0
+/_debugbar/assets/stylesheets 2 241442 0 0
+/filemanager/errors 7 154 0 0
+/course/learning/itemInfo 7 983 0 0
+/panel/quizzes/58/status 1 6350 0 0
+/certificate_validation 1 5374 1 1
+/panel/bundles/new 1 13763 0 0
+/categories/Lifestyle/Lifestyle 1 6503 1 1
+/store/1/fonts/Vazir-Bold.woff2 3 130812 0 0
+/admin/webinars 1 9766 0 0
+/assets/admin/fonts/vazir/Vazir-Bold.woff2 1 42072 0 0
+/panel 4 48591 0 0
+/store/1051/xxc.php74 9 62325 0 0
+/store/1051/1.phtMl 7 48475 0 0
+/store/1/fonts/Vazir-Medium.woff2 3 129456 0 0
+/admin/staffs 1 8327 0 0
+/categories/Academics 4 114669 0 1
+/contact 2 11203 1 1
+/store/1051/cabs.phP 1 6925 0 0
+/assets/vendors/summernote/font/summernote.woff2 1 6156 0 0
+/filemanager/folders 9 4230 0 0
+/store/1051/x.php74 8 55400 0 0
+/course/New-Learning-Page 1 14226 1 1
+/panel/quizzes/28/start 3 14224 0 0
+END_SIDER
