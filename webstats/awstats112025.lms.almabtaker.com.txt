@@ -1,0 +1,729 @@
+AWSTATS DATA FILE 7.7 (build 20161204)
+# If you remove this file, all statistics for date 202511 will be lost/reset.
+# Last config file used to build this data file was /etc/awstats/awstats.lms.almabtaker.com.conf.
+
+# Position (offset in bytes) in this file for beginning of each section for
+# direct I/O access. If you made changes somewhere in this file, you should
+# also remove completely the MAP section (AWStats will rewrite it at next
+# update).
+BEGIN_MAP 28
+POS_GENERAL 2001                
+POS_TIME 2677                
+POS_VISITOR 9477                
+POS_DAY 17364               
+POS_DOMAIN 3550                
+POS_LOGIN 4266                
+POS_ROBOT 4421                
+POS_WORMS 5286                
+POS_EMAILSENDER 5417                
+POS_EMAILRECEIVER 5560                
+POS_SESSION 18063               
+POS_SIDER 18264               
+POS_FILETYPES 5695                
+POS_DOWNLOADS 5976                
+POS_OS 6069                
+POS_BROWSER 6250                
+POS_SCREENSIZE 7052                
+POS_UNKNOWNREFERER 7126                
+POS_UNKNOWNREFERERBROWSER 7719                
+POS_ORIGIN 8027                
+POS_SEREFERRALS 8168                
+POS_PAGEREFS 8333                
+POS_SEARCHWORDS 8481                
+POS_KEYWORDS 8633                
+POS_MISC 2340                
+POS_ERRORS 8692                
+POS_CLUSTER 4122                
+POS_SIDER_404 8878                
+END_MAP
+
+# LastLine    = Date of last record processed - Last record line number in last log - Last record offset in last log - Last record signature value
+# FirstTime   = Date of first visit for history file
+# LastTime    = Date of last visit for history file
+# LastUpdate  = Date of last update - Nb of parsed records - Nb of parsed old records - Nb of parsed new records - Nb of parsed corrupted - Nb of parsed dropped
+# TotalVisits = Number of visits
+# TotalUnique = Number of unique visitors
+# MonthHostsKnown   = Number of hosts known
+# MonthHostsUnKnown = Number of hosts unknown
+BEGIN_GENERAL 8
+LastLine 20251201022716 6473 1969727 12459516729090
+FirstTime 0
+LastTime 20251130213506
+LastUpdate 20251201043616 6473 6424 48 0 0
+TotalVisits 179                 
+TotalUnique 158                 
+MonthHostsKnown 0                   
+MonthHostsUnknown 224                 
+END_GENERAL
+
+# Misc ID - Pages - Hits - Bandwidth
+BEGIN_MISC 10
+FlashSupport 0 0 0
+AddToFavourites 0 22 0
+DirectorSupport 0 0 0
+WindowsMediaPlayerSupport 0 0 0
+TotalMisc 0 0 0
+JavascriptDisabled 0 0 0
+QuickTimeSupport 0 0 0
+JavaEnabled 0 0 0
+PDFSupport 0 0 0
+RealPlayerSupport 0 0 0
+END_MISC
+
+# Hour - Pages - Hits - Bandwidth - Not viewed Pages - Not viewed Hits - Not viewed Bandwidth
+BEGIN_TIME 24
+0 28 151 4695847 86 104 1786857
+1 16 52 2565125 129 205 2276652
+2 1 1 198385 97 153 1326996
+3 5 6 46017 211 285 2527348
+4 54 108 1566278 91 156 1436557
+5 18 119 2634695 179 215 2291797
+6 0 4 269092 105 126 824349
+7 6 11 404356 116 158 878245
+8 38 208 7846554 79 112 1058991
+9 22 190 4898204 139 159 1055380
+10 26 121 3988561 156 175 1338716
+11 52 407 12144917 128 168 1897717
+12 32 173 2974940 169 234 2455535
+13 87 264 5763596 221 253 3064041
+14 7 49 1050484 92 134 1891464
+15 69 76 555195 133 286 3249746
+16 106 107 899004 102 162 2051597
+17 7 61 1892106 120 159 1502299
+18 2 2 11388 113 218 4075949
+19 6 10 314110 129 170 1856536
+20 2 2 11073 77 115 960412
+21 5 8 245138 124 147 2459271
+22 0 0 0 129 172 3582467
+23 7 11 639264 115 158 1519938
+END_TIME
+
+# Domain - Pages - Hits - Bandwidth
+# The 10 first Pages must be first (order not required for others)
+BEGIN_DOMAIN 35
+lv 166 166 1224021
+kh 103 850 18714887
+us 73 216 6029017
+id 63 307 7018137
+eg 61 303 12650769
+vn 56 56 406754
+fr 20 85 3739548
+gb 9 17 739587
+ua 7 12 396598
+br 6 6 60974
+cl 1 1 4763
+mx 1 1 8059
+za 1 1 5437
+sg 5 21 420325
+sa 5 35 1640056
+cz 1 1 13732
+az 1 1 10910
+bd 0 1 6443
+de 1 1 13500
+ie 0 2 259596
+tr 0 2 136241
+kn 1 1 198385
+unknown 2 2 11754
+ar 3 3 19628
+th 1 1 0
+cn 1 23 565718
+ec 2 2 22283
+ru 1 1 5546
+dz 1 1 7042
+jp 0 2 259596
+co 1 1 7418
+ao 0 2 11168
+pl 1 12 570952
+my 0 1 129798
+ca 2 4 305471
+END_DOMAIN
+
+# Cluster ID - Pages - Hits - Bandwidth
+BEGIN_CLUSTER 0
+END_CLUSTER
+
+# Login - Pages - Hits - Bandwidth - Last visit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_LOGIN 0
+END_LOGIN
+
+# Robot ID - Hits - Bandwidth - Last visit - Hits on robots.txt
+# The 10 first Hits must be first (order not required for others)
+BEGIN_ROBOT 19
+AhrefsBot/ 2223 15383351 20251130154642 74
+Googlebot/ 651 8974452 20251130225902 12
+crawl 230 2684743 20251130041848 4
+SemrushBot/ 227 1392661 20251127225751 88
+oBot/ 118 1109113 20251123034702 7
+baidu 83 2353941 20251124015612 0
+YandexBot/ 74 318886 20251128204728 42
+BLEXBot/ 62 642216 20251104120611 2
+bingbot/ 52 604567 20251130131823 9
+bot[\s_+:,\.\;\/\\-] 38 54066 20251130052337 35
+[\s_+:,\.\;\/\\-]bot 6 58531 20251117232237 0
+unknown 12 500 20251126040503 12
+robot 6 174 20251129124021 6
+Baiduspider/ 6 53889 20251112233817 0
+checker 4 91697 20251112130713 0
+python 18 950035 20251128141914 0
+^mozilla\/5\.0$ 2 45875 20251111133040 0
+facebookexternalhit/ 3 9964 20251120070159 0
+Googlebot\-Image/ 7 737721 20251123175823 0
+END_ROBOT
+
+# Worm ID - Hits - Bandwidth - Last visit
+# The 5 first Hits must be first (order not required for others)
+BEGIN_WORMS 0
+END_WORMS
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first Hits must be first (order not required for others)
+BEGIN_EMAILSENDER 0
+END_EMAILSENDER
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first hits must be first (order not required for others)
+BEGIN_EMAILRECEIVER 0
+END_EMAILRECEIVER
+
+# Files type - Hits - Bandwidth - Bandwidth without compression - Bandwidth after compression
+BEGIN_FILETYPES 11
+png 641 25972990 0 0
+gif 3 21900 0 0
+html 40 1020243 0 0
+svg 167 173862 0 0
+Unknown 473 2626927 0 0
+xml 6 28569 0 0
+css 192 1802093 0 0
+jpg 174 13084506 0 0
+js 368 9110823 0 0
+json 14 149476 0 0
+woff2 63 1622508 0 0
+END_FILETYPES
+
+# Downloads - Hits - Bandwidth
+BEGIN_DOWNLOADS 2
+/sitemap.xml.gz 2 0 9503
+/robots.txt 0 9 216
+END_DOWNLOADS
+
+# OS ID - Hits
+BEGIN_OS ID - Hits - Pages 8
+win7 27 1
+Unknown 50 3
+ios_iphone 33 26
+win10 1319 243
+ios_ipad 1 1
+macosx 473 103
+linuxandroid 63 39
+linux 184 180
+END_OS
+
+# Browser ID - Hits - Pages
+BEGIN_BROWSER 38
+firefox139.0 4 2
+chrome139.0.0.0 290 60
+opera62.0.3331.88 1 1
+chrome142.0.0.0 765 95
+firefox123.0 7 7
+netscape5.0 7 2
+edge44 4 4
+safari17.0.3 1 1
+chrome128.0.0.0 16 0
+chrome141.0.0.0 469 84
+safari 1 1
+mozilla 13 2
+chrome122.0.0.0 26 26
+chrome101.0.4951.64 1 1
+chrome130.0.0.0 10 1
+Unknown 39 1
+chrome141.0.7390.122 21 20
+chrome84.0.4147.105 1 1
+chrome91.0.4472.124 2 2
+chrome137.0.0.0 3 3
+firefox145.0 53 6
+chrome121.0.0.0 21 21
+chrome86.0.4240.111 1 1
+safari18.6 134 41
+opera89.0.4447.51 2 2
+firefox43.0 22 1
+chrome131.0.0.0 1 1
+safari17.0 22 22
+firefox114.0 4 4
+chrome134.0.0.0 167 167
+firefox134.0 1 1
+chrome132.0.0.0 20 1
+chrome59.0.3343.1406 12 5
+chrome114.0.0.0 4 4
+safari18.3 1 1
+chrome109.0.0.0 1 1
+chrome116.0.0.0 1 1
+chrome122.0.6261.64 2 2
+END_BROWSER
+
+# Screen size - Hits
+BEGIN_SCREENSIZE 0
+END_SCREENSIZE
+
+# Unknown referer OS - Last visit date
+BEGIN_UNKNOWNREFERER 6
+Iframely/1.3.1_(_https://iframely.com/docs/about) 20251123124928
+Mozilla/5.0_(compatible;_InternetMeasurement/1.0;__https://internet-measurement.com/) 20251122231906
+Mozilla/5.0_(compatible;_UGAResearchAgent/1.0;_Please_visit:_NISLabUGA.github.io) 20251111102523
+com.apple.WebKit.Networking/20621.3.11.11.3_Network/4277.140.33_macOS/15.6 20251120070159
+Iframely/1.3.1_(_https://iframely.com/docs/about)_Canva 20251123124928
+Mozilla/5.0_(compatible;_AhrefsBot/7.0;__http://ahrefs.com/robot/) 20251129082950
+END_UNKNOWNREFERER
+
+# Unknown referer Browser - Last visit date
+BEGIN_UNKNOWNREFERERBROWSER 3
+Iframely/1.3.1_(_https://iframely.com/docs/about) 20251123124928
+com.apple.WebKit.Networking/20621.3.11.11.3_Network/4277.140.33_macOS/15.6 20251120070159
+Iframely/1.3.1_(_https://iframely.com/docs/about)_Canva 20251123124928
+END_UNKNOWNREFERERBROWSER
+
+# Origin - Pages - Hits 
+BEGIN_ORIGIN 6
+From0 336 480
+From1 0 0
+From2 18 18
+From3 0 0
+From4 242 1652
+From5 0 0
+END_ORIGIN
+
+# Search engine referers ID - Pages - Hits
+BEGIN_SEREFERRALS 1
+www_google_com 18 18
+END_SEREFERRALS
+
+# External page referers - Pages - Hits
+# The 10 first Pages must be first (order not required for others)
+BEGIN_PAGEREFS 0
+END_PAGEREFS
+
+# Search keyphrases - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_SEARCHWORDS 0
+END_SEARCHWORDS
+
+# Search keywords - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_KEYWORDS 0
+END_KEYWORDS
+
+# Errors - Hits - Bandwidth
+BEGIN_ERRORS 8
+404 44 229183
+500 5 3307359
+206 79 39500
+301 44 2155
+403 19 825664
+503 26 1972048
+422 9 5343201
+302 154 67324
+END_ERRORS
+
+# URL with 404 errors - Hits - Last URL referrer
+BEGIN_SIDER_404 10
+/course/Learn-Python-Programming/lessons/15/read 1 -
+/users/870/profile 4 -
+/upcoming_courses/Web-Design-for-Beginners 1 -
+/users/3/profile 1 -
+/users/934/profile 1 -
+/users/1047/profile 1 -
+/products/Advanced-microscope 1 -
+/users/929/profile 2 -
+/users/923/profile 1 -
+/pages/terms 31 -
+END_SIDER_404
+
+# Host - Pages - Hits - Bandwidth - Last visit date - [Start date of last visit] - [Last page of last visit]
+# [Start date of last visit] and [Last page of last visit] are saved only if session is not finished
+# The 10 first Hits must be first (order not required for others)
+BEGIN_VISITOR 224
+83.99.151.71 111 111 823944 20251108163507
+103.138.192.173 94 740 16143170 20251124095532
+185.213.83.153 51 225 5096389 20251105135228
+197.54.29.91 45 193 7579582 20251110104832
+83.99.151.69 28 28 210509 20251108163758
+83.99.151.68 19 19 127463 20251108163517
+197.54.18.69 10 79 3102338 20251106113956
+66.249.72.237 10 10 74815 20251103120540
+170.23.26.23 10 107 3700010 20251105002538
+136.228.135.175 9 110 2571717 20251101050413
+173.252.87.112 0 1 24 
+54.37.19.39 1 1 5373 20251130195534
+51.77.211.137 2 3 29105 20251130195623
+46.250.175.19 0 16 345975 
+173.252.82.2 0 1 24 
+151.80.133.238 0 4 108098 
+52.112.49.156 0 1 129798 
+36.155.132.137 0 4 29060 
+145.239.87.55 0 1 4683 
+147.135.209.14 0 1 4432 
+156.243.35.174 2 2 1038 20251123214042
+23.82.81.164 2 2 11066 20251125232411
+14.187.23.28 1 1 11013 20251113045852
+34.87.33.223 2 2 29373 20251112073016
+141.95.54.157 0 1 57667 
+51.38.187.130 1 1 6337 20251128014607
+45.165.150.195 1 1 5459 20251113135504
+14.241.241.238 1 1 5560 20251113131035
+36.155.132.143 0 3 21661 
+160.224.0.124 0 1 6446 
+157.100.199.246 1 1 8060 20251113045738
+45.230.8.9 1 1 7229 20251113045841
+202.59.168.204 1 1 8346 20251113045846
+194.124.41.47 0 1 46362 
+14.191.76.129 1 1 6329 20251113040744
+155.94.179.123 0 1 129798 
+203.18.39.25 1 1 4760 20251114001450
+113.172.175.232 1 1 8061 20251113131116
+159.203.41.108 1 2 152738 20251115135441
+165.227.80.130 1 2 152735 20251122124659
+173.252.82.3 0 1 24 
+51.75.18.6 0 1 4722 
+114.10.45.193 1 1 8066 20251113131111
+170.23.9.23 4 16 700955 20251105010433
+57.129.81.225 2 4 223357 20251128014723
+14.171.25.241 1 1 8062 20251113130833
+14.191.243.45 1 1 7324 20251113045648
+57.129.69.52 1 4 171075 20251130213506
+113.175.78.30 1 1 4764 20251113131028
+103.228.200.254 0 1 6443 
+35.89.115.104 1 1 22945 20251114171038
+14.169.207.200 1 1 4763 20251114001500
+51.91.250.17 0 1 163584 
+123.20.177.222 1 1 5542 20251113130947
+138.117.78.141 1 1 5398 20251113131021
+83.99.151.64 1 1 7060 20251108163548
+134.122.35.164 1 2 152733 20251108112237
+113.178.224.205 1 1 7374 20251113045844
+14.254.60.161 1 1 6379 20251113045658
+141.94.79.3 1 3 232426 20251129042315
+13.36.39.172 1 1 22946 20251128141858
+14.170.166.97 1 1 5734 20251113130818
+173.254.209.201 1 1 1165 20251117160045
+14.235.190.82 1 1 5999 20251113045720
+185.247.137.160 0 1 129798 
+95.164.196.45 2 2 11403 20251130193848
+51.89.164.226 0 1 159790 
+195.172.109.253 7 12 396601 20251105003135
+51.91.255.135 0 2 45820 
+14.191.222.80 1 1 6350 20251113040846
+146.59.127.80 0 2 112078 
+18.209.183.169 0 1 40960 
+57.129.81.153 0 1 29307 
+182.8.226.29 1 1 4760 20251113130851
+113.163.169.69 1 1 6504 20251113045834
+162.120.184.13 1 1 13494 20251107070728
+51.235.205.61 1 20 865639 20251106081348
+125.165.109.239 6 53 1403313 20251128120553
+14.191.228.23 1 1 7060 20251113045904
+190.123.32.219 1 1 14223 20251113045732
+66.249.69.104 1 1 6533 20251105091627
+57.129.139.103 0 3 228712 
+57.129.69.65 0 1 26889 
+57.129.81.155 0 1 15829 
+14.172.72.42 1 1 9640 20251113131014
+204.76.203.25 1 1 198385 20251118023617
+158.181.44.44 1 1 10910 20251113045644
+14.191.133.79 1 1 9950 20251113045838
+141.94.76.134 1 3 210648 20251128014501
+173.252.70.3 0 1 24 
+149.202.48.220 1 2 10544 20251127175811
+173.252.70.113 0 1 24 
+113.191.202.145 1 1 5270 20251113045902
+173.252.87.10 0 1 24 
+51.38.187.132 0 1 2374 
+83.99.151.66 5 5 41915 20251108164503
+14.169.170.145 1 1 6954 20251113045903
+83.99.151.70 2 2 13130 20251108162617
+197.54.69.30 0 3 139294 
+162.128.159.121 1 1 5742 20251128161340
+113.164.188.247 1 1 6687 20251113045759
+41.96.67.182 1 1 7042 20251113040806
+51.91.254.43 0 1 15106 
+151.80.133.130 1 2 90019 20251130213435
+188.243.183.81 1 1 5546 20251113131003
+45.77.252.209 1 1 13719 20251103051751
+51.38.112.81 1 3 116961 20251128114701
+14.228.44.167 1 1 6334 20251113045649
+52.123.138.200 0 1 129798 
+14.187.12.214 1 1 5465 20251113131021
+14.187.116.228 1 1 6877 20251113045828
+14.191.209.219 1 1 9356 20251113045713
+23.82.81.134 2 2 11388 20251122180903
+14.163.181.153 1 1 13506 20251113040831
+23.80.157.9 2 2 11073 20251118204531
+185.197.28.92 1 1 22923 20251116193212
+134.209.180.213 1 2 152743 20251113134545
+197.54.32.66 0 6 528693 
+123.20.232.85 1 1 5573 20251113131001
+113.191.124.143 1 1 13532 20251113040853
+57.129.81.224 0 1 10932 
+36.73.196.118 1 1 5375 20251113130839
+222.255.164.100 1 1 5408 20251113135503
+113.172.223.207 1 1 8058 20251113131034
+173.252.70.25 0 1 24 
+36.155.132.144 1 6 47637 20251103103554
+23.82.81.206 4 4 21998 20251129050854
+128.192.12.100 1 1 22938 20251111102523
+58.10.55.70 1 1 0 20251103051752
+57.129.81.151 0 2 85297 
+14.191.205.251 1 1 13734 20251112053448
+123.17.5.141 1 1 6811 20251113045748
+152.174.223.40 1 1 4763 20251114001437
+51.75.23.111 2 4 166815 20251128232859
+103.73.54.226 6 27 573949 20251105004608
+14.191.236.193 1 1 4776 20251113045855
+14.227.194.49 1 1 8059 20251113135505
+204.1.137.14 0 1 45761 
+123.24.217.144 1 1 6943 20251113040755
+45.163.173.72 1 1 5959 20251113045852
+15.228.166.245 1 1 22938 20251127144421
+51.38.115.13 0 2 119008 
+57.129.139.60 1 1 2724 20251127175810
+104.250.53.123 1 1 22923 20251120095035
+145.239.81.31 1 1 6802 20251128014345
+113.190.145.24 1 1 8060 20251113045832
+177.155.221.71 1 1 12758 20251113045704
+14.186.234.225 1 1 6803 20251113045847
+157.20.144.126 1 1 6994 20251113045756
+162.120.184.4 1 1 13721 20251112134059
+160.224.43.160 0 1 4722 
+151.80.133.171 0 1 7300 
+91.196.152.59 1 1 198385 20251111095315
+131.103.66.93 0 1 1409 
+186.154.36.232 1 1 7418 20251113045832
+14.183.140.58 1 1 6327 20251113045803
+178.156.195.194 1 1 13500 20251124195955
+57.129.81.228 0 2 34690 
+198.55.122.133 5 12 71371 20251105151716
+14.187.208.219 1 1 5570 20251113131016
+57.129.81.226 0 5 272302 
+14.231.223.177 1 1 7815 20251113131014
+103.196.9.64 1 1 13733 20251115232703
+57.129.69.7 2 4 301681 20251128114817
+51.77.211.191 0 2 207656 
+151.80.133.55 1 3 19958 20251128232900
+41.116.17.107 1 1 5437 20251113130850
+197.54.0.196 6 22 1300862 20251117080035
+181.209.113.195 1 1 7001 20251113045903
+51.89.167.163 0 1 7510 
+52.123.138.160 0 1 129798 
+23.80.157.117 2 2 11011 20251129030934
+45.190.141.126 1 1 6768 20251113040906
+36.155.132.142 0 3 119558 
+14.191.10.133 1 1 5771 20251113130925
+87.236.176.207 1 1 22943 20251122231904
+51.91.254.244 1 1 937 20251127175810
+92.112.92.63 7 12 396598 20251105012109
+145.239.89.234 0 4 266495 
+217.182.73.176 0 1 44410 
+145.239.83.37 0 4 282095 
+36.155.132.159 0 6 344605 
+14.180.121.168 1 1 5403 20251113135457
+187.249.116.20 1 1 8059 20251113135500
+217.182.73.60 0 1 81855 
+14.228.58.100 1 1 6366 20251113045719
+57.129.139.80 0 2 99963 
+113.179.21.175 1 1 6367 20251113045900
+141.95.54.132 0 2 6705 
+123.21.232.16 1 1 5749 20251113130942
+185.247.137.219 0 1 6443 
+14.191.161.41 1 1 8774 20251113045736
+51.75.23.120 0 2 132880 
+217.182.77.22 0 1 1680 
+149.202.53.222 1 1 6880 20251129042154
+106.49.59.56 0 1 3197 
+66.249.72.224 4 4 31079 20251103111205
+113.190.2.188 1 1 5418 20251113135505
+51.75.24.242 2 6 176618 20251130213506
+68.167.164.16 1 1 13719 20251105151707
+52.112.74.62 0 2 259596 
+123.19.148.40 1 1 8059 20251113130900
+116.68.162.112 1 1 5754 20251113131037
+51.75.21.177 0 1 129798 
+141.94.78.40 0 5 191574 
+173.252.95.1 0 1 24 
+14.186.245.67 1 1 6503 20251113045913
+158.140.165.5 1 24 486134 20251110094317
+51.77.211.229 1 3 479272 20251127175809
+45.6.16.190 1 1 7092 20251113045801
+14.161.7.32 1 1 6525 20251113045742
+66.249.72.238 5 5 31601 20251103133747
+113.163.3.239 1 1 8061 20251113130931
+14.230.211.195 1 1 6993 20251113045832
+14.191.5.25 1 1 6645 20251113045858
+154.36.79.142 0 1 6445 
+113.176.138.31 1 1 14691 20251113040917
+18.210.2.36 1 1 13721 20251123124928
+14.171.70.139 1 1 4764 20251113131025
+57.129.69.77 0 1 4053 
+46.250.175.22 1 1 8335 20251115163255
+173.252.70.8 0 1 24 
+123.21.103.68 1 1 6339 20251113045708
+95.173.222.47 1 1 13732 20251112130640
+END_VISITOR
+
+# Date - Pages - Hits - Bandwidth - Visits
+BEGIN_DAY 27
+20251101 9 110 2571717 1
+20251103 22 43 713735 12
+20251105 92 413 10956125 9
+20251106 11 99 3967977 2
+20251107 1 1 13494 1
+20251108 167 168 1376754 7
+20251109 9 20 988579 1
+20251110 37 197 7077137 3
+20251111 2 3 351121 2
+20251112 5 7 330156 4
+20251113 98 242 3968126 78
+20251114 43 284 6466804 6
+20251115 3 4 174806 3
+20251116 1 4 162217 1
+20251117 21 157 4360221 4
+20251118 5 7 301921 3
+20251119 2 2 11001 1
+20251120 7 63 1347348 2
+20251122 4 23 669330 3
+20251123 3 5 101528 2
+20251124 13 106 2660018 2
+20251125 2 5 148831 1
+20251126 0 2 176208 0
+20251127 7 62 1854193 7
+20251128 19 95 4311201 14
+20251129 6 6 35239 4
+20251130 7 13 518542 6
+END_DAY
+
+# Session range - Number of visits
+BEGIN_SESSION 6
+5mn-15mn 2
+2mn-5mn 1
+0s-30s 161
+30s-2mn 2
+15mn-30mn 4
+30mn-1h 9
+END_SESSION
+
+# URL - Pages - Bandwidth - Entry - Exit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_SIDER 114
+/getDefaultAvatar 116 213514 12 21
+/ 40 1020243 36 23
+/login 23 185376 11 13
+/upcoming_courses 22 146564 4 4
+/filemanager/jsonitems 19 3608 0 1
+/store/1/fonts/montserrat-regular.woff2 18 345096 0 1
+/store/1/fonts/montserrat-bold.woff2 17 331160 0 2
+/store/1/fonts/montserrat-medium.woff2 15 289080 0 1
+/contact 14 77939 7 7
+/classes 11 77047 1 2
+/blog 2 12670 2 1
+/users/867/profile 2 14826 0 0
+/tags/courses/New+Live+System 2 11184 0 0
+/users/863/profile 3 21974 1 1
+/admin/login 2 2751 1 1
+/assets/admin/fonts/vazir/Vazir.woff2 1 37972 0 0
+/captcha/create 2 184 0 0
+/pages/about 4 21764 2 1
+/users/864/profile 3 20980 1 1
+/categories/Development/Web-Development 4 28172 1 1
+/categories/Academics 2 11921 1 1
+/filemanager/errors 3 18 0 0
+/sitemap_index.xml 2 9523 0 0
+/categories/Lifestyle/Lifestyle 3 19509 1 1
+/assets/vendors/fontawesome/webfonts/fa-solid-900.woff2 4 320592 0 0
+/users/1015/profile 6 57862 2 2
+/course/New-Learning-Page 5 71858 3 2
+/products 9 57476 2 2
+/tags/courses/Live+Class 1 5594 1 1
+/bundles/reviews/store-reply-comment 2 9525 1 1
+/upcoming_courses/Digital-Photography 3 26355 1 1
+/categories/Development/Game-Development 6 40882 4 3
+/certificate_validation 6 34122 4 2
+/tags/courses/os 3 17208 1 1
+/instructor-finder/wizard 3 14325 1 1
+/policies/cookies 1 4763 1 1
+/forget-password 3 23450 1 2
+/course/New-in-App-Live-System 4 51014 3 2
+/blog/Better-Relationship-Between-You-and-Your-Student-s-Parent 1 7418 1 1
+/organizations 1 6918 0 0
+/filemanager 3 30878 0 0
+/laravel-filemanager/upload 2 16 0 0
+/tags/courses/Excel 2 11124 1 1
+/store/1/animated-header.json 6 149028 0 3
+/course/Learn-Linux-in-5-Days 5 67512 3 3
+/sitemap.xml 2 9523 0 0
+/tags/courses/Product+Manager 2 10813 1 1
+/categories/Academics/Language 4 25363 1 1
+/reg 1 4763 1 1
+/products/Business-Software 3 30955 0 0
+/categories/Development 4 26569 2 1
+/users/868/profile 3 20829 1 1
+/categories/Lifestyle/Beauty-and-Makeup 3 19105 1 1
+/settings 1 4760 1 1
+/course/Become-a-Product-Manager 4 54109 2 1
+/reviews/store-reply-comment 3 14283 1 1
+/blog/categories/Fugit-dignissimos-possimus 1 5749 1 1
+/admin 1 10267 0 0
+/course/Excel-from-Beginner-to-Advanced 3 44073 1 1
+/assets/admin/fonts/vazir/Vazir-Light.woff2 1 48552 0 0
+/blog/3-Laws-to-Become-a-Straight-A-Student 2 15382 1 1
+/blog/categories/Facilis-ea 1 5771 1 1
+/categories/Business/Management 2 14118 1 1
+/categories/Business/Communications 3 21271 1 1
+/filemanager/delete 1 6 0 0
+/categories/Academics/Science 2 12657 1 1
+/store/1056 2 10310 0 0
+/users/1/profile 4 27205 3 2
+/tags/courses/excel+class 3 16702 1 1
+/tags/courses/Guitar+Masterclass 2 10837 1 1
+/products/Painting-tools 3 29849 1 1
+/tags/upcoming-courses/Photography 1 5404 0 0
+/products/reviews/store-reply-comment 3 14283 1 1
+/assets/admin/fonts/vazir/Vazir-Medium.woff2 1 51284 0 0
+/instructor-finder 3 21677 2 1
+/store/1/fonts/Vazir-Regular.woff2 1 42744 0 0
+/categories/Design 5 32520 2 1
+/categories/Lifestyle 3 19512 1 1
+/store/1/fonts/Vazir-Medium.woff2 1 43152 0 0
+/categories/Health-and-Fitness 4 25342 2 2
+/users/4/profile 2 13622 1 1
+/categories/Business 4 27967 1 2
+/users/1016/profile 7 58412 3 3
+/categories/Academics/Math 3 18990 1 1
+/blog/categories/Vel-consequatur 1 5437 1 1
+/categories/Business/Business-Strategy 3 20635 2 2
+/instructors 2 13910 1 1
+/reward-courses 3 20054 3 1
+/panel 3 30608 0 0
+/tags/bundles/bundle 4 21863 1 2
+/tags/courses/managment 3 16230 1 1
+/users/859/profile 3 20302 2 2
+/register 7 86585 0 0
+/products/Where-the-Crawdads-Sing-e-book 4 43642 2 2
+/wp-sitemap.xml 2 9523 0 0
+/tags/courses/microsoft+excel 1 5573 1 1
+/store/1/fonts/Vazir-Bold.woff2 1 43604 0 0
+/categories/Development/Mobile-Development 5 32440 3 2
+/products/Sherlock-Holmes-e-book 3 28069 1 1
+/categories/Marketing 2 12664 0 1
+/tags/bundles/office 5 27298 2 2
+/tags/upcoming-courses/python 2 10794 1 1
+/captcha/flat 2 7624 0 1
+/blog/categories/new 2 11496 2 2
+/filemanager/folders 6 2382 0 0
+/mix-manifest.json 8 448 0 3
+/upcoming_courses/Python-for-Beginners 3 26320 2 2
+/assets/admin/fonts/vazir/Vazir-Bold.woff2 1 42072 0 0
+/tags/courses/linux 3 16629 1 1
+/users/1050/profile 1 6444 0 0
+/tags/courses/network 3 16645 1 1
+/bundles/Microsoft-Office-Beginner-to-Expert-Bundle 5 55063 3 2
+/assets/vendors/fontawesome/webfonts/fa-regular-400.woff2 2 27200 0 0
+/wordpress 1 6444 0 1
+END_SIDER

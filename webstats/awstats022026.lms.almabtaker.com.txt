@@ -1,0 +1,650 @@
+AWSTATS DATA FILE 7.7 (build 20161204)
+# If you remove this file, all statistics for date 202602 will be lost/reset.
+# Last config file used to build this data file was /etc/awstats/awstats.lms.almabtaker.com.conf.
+
+# Position (offset in bytes) in this file for beginning of each section for
+# direct I/O access. If you made changes somewhere in this file, you should
+# also remove completely the MAP section (AWStats will rewrite it at next
+# update).
+BEGIN_MAP 28
+POS_GENERAL 2001                
+POS_TIME 2677                
+POS_VISITOR 8735                
+POS_DAY 15097               
+POS_DOMAIN 3508                
+POS_LOGIN 4050                
+POS_ROBOT 4205                
+POS_WORMS 4941                
+POS_EMAILSENDER 5072                
+POS_EMAILRECEIVER 5215                
+POS_SESSION 15603               
+POS_SIDER 15806               
+POS_FILETYPES 5350                
+POS_DOWNLOADS 5666                
+POS_OS 5787                
+POS_BROWSER 5999                
+POS_SCREENSIZE 6745                
+POS_UNKNOWNREFERER 6819                
+POS_UNKNOWNREFERERBROWSER 7172                
+POS_ORIGIN 7522                
+POS_SEREFERRALS 7663                
+POS_PAGEREFS 7828                
+POS_SEARCHWORDS 7976                
+POS_KEYWORDS 8128                
+POS_MISC 2340                
+POS_ERRORS 8187                
+POS_CLUSTER 3906                
+POS_SIDER_404 8409                
+END_MAP
+
+# LastLine    = Date of last record processed - Last record line number in last log - Last record offset in last log - Last record signature value
+# FirstTime   = Date of first visit for history file
+# LastTime    = Date of last visit for history file
+# LastUpdate  = Date of last update - Nb of parsed records - Nb of parsed old records - Nb of parsed new records - Nb of parsed corrupted - Nb of parsed dropped
+# TotalVisits = Number of visits
+# TotalUnique = Number of unique visitors
+# MonthHostsKnown   = Number of hosts known
+# MonthHostsUnKnown = Number of hosts unknown
+BEGIN_GENERAL 8
+LastLine 20260218041014 9833 3603838 0
+FirstTime 20260201005234
+LastTime 20260218041014
+LastUpdate 20260218043554 9833 9753 80 0 0
+TotalVisits 169                 
+TotalUnique 142                 
+MonthHostsKnown 0                   
+MonthHostsUnknown 172                 
+END_GENERAL
+
+# Misc ID - Pages - Hits - Bandwidth
+BEGIN_MISC 10
+PDFSupport 0 0 0
+JavaEnabled 0 0 0
+DirectorSupport 0 0 0
+AddToFavourites 0 26 0
+JavascriptDisabled 0 0 0
+QuickTimeSupport 0 0 0
+RealPlayerSupport 0 0 0
+FlashSupport 0 0 0
+TotalMisc 0 0 0
+WindowsMediaPlayerSupport 0 0 0
+END_MISC
+
+# Hour - Pages - Hits - Bandwidth - Not viewed Pages - Not viewed Hits - Not viewed Bandwidth
+BEGIN_TIME 24
+0 2 2 12683 58 76 1311609
+1 3 3 28506 27 57 603081
+2 2 2 19134 20 31 719261
+3 5 5 28366 65 72 2206993
+4 47 217 4922005 22 38 370426
+5 10 10 132592 11 14 1246459
+6 63 344 12139481 31 90 4049028
+7 224 1137 40680284 27 105 481070
+8 124 600 20025193 27 30 283558
+9 35 176 7173203 13 17 67149
+10 69 210 2716967 24 53 1001467
+11 21 169 3204432 15 82 1572376
+12 106 258 6455135 59 77 2958034
+13 33 159 5993160 18 32 5103024
+14 48 261 6359367 21 62 3110833
+15 6 72 2049700 15 23 277993
+16 13 118 4297747 22 72 1123099
+17 16 37 597619 15 31 620449
+18 1 1 22988 23 46 250483
+19 26 26 206153 19 30 473999
+20 83 83 581832 47 55 8577616
+21 4 4 73906 71 80 1163140
+22 0 0 0 18 80 1432873
+23 7 12 1253869 26 50 1094532
+END_TIME
+
+# Domain - Pages - Hits - Bandwidth
+# The 10 first Pages must be first (order not required for others)
+BEGIN_DOMAIN 22
+eg 365 1680 58856706
+lv 218 218 1575916
+sa 133 966 32839799
+kh 102 586 11077482
+us 53 290 8809320
+es 31 92 696711
+ca 8 8 770672
+se 8 8 149684
+cn 7 10 621562
+jp 6 18 1695165
+vn 1 1 7217
+de 1 1 22913
+hk 2 2 45880
+fr 1 5 542133
+ie 1 7 801723
+id 3 3 33761
+be 1 1 5630
+hn 2 2 22914
+gb 3 4 163529
+sc 0 2 207249
+br 1 1 7091
+mt 1 1 21001
+END_DOMAIN
+
+# Cluster ID - Pages - Hits - Bandwidth
+BEGIN_CLUSTER 0
+END_CLUSTER
+
+# Login - Pages - Hits - Bandwidth - Last visit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_LOGIN 0
+END_LOGIN
+
+# Robot ID - Hits - Bandwidth - Last visit - Hits on robots.txt
+# The 10 first Hits must be first (order not required for others)
+BEGIN_ROBOT 16
+AhrefsBot/ 440 7246876 20260217171039 31
+Googlebot/ 191 3060302 20260217164514 6
+SemrushBot/ 138 801623 20260218025544 61
+bot[\s_+:,\.\;\/\\-] 117 991600 20260217153712 18
+bingbot/ 61 1089559 20260218031104 10
+MojeekBot/ 26 146972 20260209180157 10
+crawl 19 982336 20260214024605 0
+no_user_agent 10 22941 20260208080519 0
+robot 9 261 20260217195911 9
+baidu 8 87107 20260208140611 0
+checker 3 45829 20260213152631 0
+unknown 6 248 20260217160116 6
+YandexBot/ 4 16983 20260213034924 2
+facebookexternalhit/ 6 57629 20260215063811 0
+Googlebot\-Image/ 3 389394 20260214195556 0
+oBot/ 2 22954 20260212185738 1
+END_ROBOT
+
+# Worm ID - Hits - Bandwidth - Last visit
+# The 5 first Hits must be first (order not required for others)
+BEGIN_WORMS 0
+END_WORMS
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first Hits must be first (order not required for others)
+BEGIN_EMAILSENDER 0
+END_EMAILSENDER
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first hits must be first (order not required for others)
+BEGIN_EMAILRECEIVER 0
+END_EMAILRECEIVER
+
+# Files type - Hits - Bandwidth - Bandwidth without compression - Bandwidth after compression
+BEGIN_FILETYPES 13
+png 1232 51342168 0 0
+css 291 2893525 0 0
+html 71 1540049 0 0
+jpeg 4 21847 0 0
+xml 7 35028 0 0
+svg 310 375770 0 0
+Unknown 702 3473432 0 0
+pdf 1 5461 0 0
+gif 3 21900 0 0
+jpg 545 41866699 0 0
+js 572 13043765 0 0
+json 44 518850 0 0
+woff2 124 3835300 0 0
+END_FILETYPES
+
+# Downloads - Hits - Bandwidth
+BEGIN_DOWNLOADS 3
+/sitemap.xml.gz 2 0 9500
+/store/asstes.pdf 1 0 5461
+/robots.txt 0 11 264
+END_DOWNLOADS
+
+# OS ID - Hits
+BEGIN_OS ID - Hits - Pages 11
+win10 2052 396
+linuxandroid 345 37
+os/2 18 0
+macosx 1018 251
+linux 221 220
+Unknown 46 4
+win8.1 5 5
+ios_iphone 180 26
+winnt 1 0
+unix 1 1
+win7 30 8
+END_OS
+
+# Browser ID - Hits - Pages
+BEGIN_BROWSER 33
+chrome101.0.4951.64 1 1
+chrome121.0.0.0 4 4
+mozilla 8 0
+safari26.0 2 1
+opera89.0.4447.51 6 6
+Unknown 60 4
+chrome96.0.4664.45 2 2
+firefox123 1 1
+chrome134.0.6998.35 21 9
+firefox142.0 2 1
+chrome144.0.0.0 1557 277
+netscape5.0 30 8
+chrome143.0.0.0 287 93
+chrome136.0.0.0 2 1
+chrome61.0.1620 1 1
+chrome66.0.3359.158 130 12
+chrome114.0.0.0 12 12
+chrome141.0.7390.124 1 1
+chrome142.0.0.0 221 218
+chrome142.0.7444.175 3 3
+chrome142.0.7444.163 119 15
+firefox115 4 4
+chrome105.0.1092 1 0
+chrome139.0.0.0 1 1
+chrome132.0.0.0 442 79
+chrome130.0.4003.63 1 1
+chrome131.0.0.0 4 1
+safari18.6 855 174
+chrome133.0.6943.143 134 13
+chrome100.0.4896.127 1 1
+chrome143.0.7499.192 2 2
+safari4.0.5 1 1
+firefox116.0 1 1
+END_BROWSER
+
+# Screen size - Hits
+BEGIN_SCREENSIZE 0
+END_SCREENSIZE
+
+# Unknown referer OS - Last visit date
+BEGIN_UNKNOWNREFERER 5
+SEMrushBot 20260208180437
+WhatsApp/2.23.20.0 20260208080240
+com.apple.WebKit.Networking/20621.3.11.11.3_Network/4277.140.33_macOS/15.6 20260215063812
+Go-http-client/1.1 20260207235102
+Mozilla/5.0_(compatible;_AhrefsBot/7.0;__http://ahrefs.com/robot/) 20260210210105
+END_UNKNOWNREFERER
+
+# Unknown referer Browser - Last visit date
+BEGIN_UNKNOWNREFERERBROWSER 5
+com.apple.WebKit.Networking/20621.3.11.11.3_Network/4277.140.33_macOS/15.6 20260215063812
+WhatsApp/2.23.20.0 20260208080240
+Go-http-client/1.1 20260207235102
+SEMrushBot 20260208180437
+NetworkingExtension/8623.1.14.10.9_Network/5569.60.39.0.3_iOS/26.2.1 20260214142403
+END_UNKNOWNREFERERBROWSER
+
+# Origin - Pages - Hits 
+BEGIN_ORIGIN 6
+From0 308 415
+From1 0 0
+From2 17 17
+From3 0 0
+From4 623 3485
+From5 0 0
+END_ORIGIN
+
+# Search engine referers ID - Pages - Hits
+BEGIN_SEREFERRALS 1
+www_google_com 17 17
+END_SEREFERRALS
+
+# External page referers - Pages - Hits
+# The 10 first Pages must be first (order not required for others)
+BEGIN_PAGEREFS 0
+END_PAGEREFS
+
+# Search keyphrases - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_SEARCHWORDS 0
+END_SEARCHWORDS
+
+# Search keywords - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_KEYWORDS 0
+END_KEYWORDS
+
+# Errors - Hits - Bandwidth
+BEGIN_ERRORS 11
+500 7 6902234
+502 2 179176
+405 3 3501769
+404 2 11197
+419 1 156847
+302 105 51546
+422 10 12099045
+503 19 1344820
+301 15 619
+403 17 694719
+499 53 0
+END_ERRORS
+
+# URL with 404 errors - Hits - Last URL referrer
+BEGIN_SIDER_404 1
+/pages/terms 2 -
+END_SIDER_404
+
+# Host - Pages - Hits - Bandwidth - Last visit date - [Start date of last visit] - [Last page of last visit]
+# [Start date of last visit] and [Last page of last visit] are saved only if session is not finished
+# The 10 first Hits must be first (order not required for others)
+BEGIN_VISITOR 172
+197.54.34.89 112 392 13415023 20260212074428
+103.138.192.173 98 526 9915245 20260212115807
+197.54.56.7 85 252 8803118 20260208080240
+129.208.76.76 60 336 11729549 20260204063146
+197.54.2.137 40 293 11960812 20260202074456
+196.129.60.51 35 149 4523601 20260210072848
+196.129.110.201 32 142 4387936 20260215082643
+196.130.236.204 31 201 6248207 20260210171537
+217.217.116.103 31 92 696711 20260204045954
+37.224.183.15 26 180 5493258 20260205100652
+38.18.24.231 1 1 0 20260207040736
+194.36.164.230 11 115 4207914 20260204070904
+83.99.206.21 7 7 52600 20260211124844
+52.112.103.76 0 1 129798 
+52.112.74.61 2 6 565065 20260205070654
+65.111.14.20 2 2 11018 20260208035802
+83.99.206.64 1 1 6552 20260202201113
+83.99.206.202 1 1 5547 20260211125515
+83.99.206.165 1 1 6515 20260211124253
+83.99.206.73 1 1 6751 20260211123702
+83.99.206.67 1 1 8347 20260211125935
+196.129.109.78 0 6 528690 
+83.99.206.224 1 1 6333 20260202203051
+38.18.1.84 0 1 0 
+81.78.111.61 1 1 5413 20260206021550
+69.63.189.29 0 1 24 
+83.99.206.119 2 2 14750 20260211125740
+52.112.125.9 3 9 847573 20260217075057
+83.99.206.153 1 1 8060 20260202202952
+83.99.206.48 1 1 12756 20260211121911
+35.236.211.174 1 1 22940 20260208180437
+173.252.82.9 0 1 24 
+52.123.138.201 0 1 129798 
+83.99.206.168 1 1 5563 20260211125536
+209.50.185.4 2 2 11034 20260209055753
+173.252.70.112 0 1 24 
+38.127.125.29 0 1 0 
+191.189.167.121 1 1 7091 20260217005909
+52.123.138.164 1 3 282531 20260203231525
+83.99.206.246 1 1 11013 20260202200824
+83.99.206.132 2 2 11542 20260211121330
+83.99.206.47 1 1 9355 20260211123519
+83.99.206.143 1 1 5406 20260211122450
+162.120.184.36 1 1 6656 20260210140355
+197.193.5.141 13 117 4217406 20260211164535
+104.207.38.21 2 2 11028 20260218033729 20260218033723 /contact
+38.18.24.186 1 1 0 20260201064515
+69.63.189.45 0 1 24 
+82.32.251.233 1 1 5411 20260209062116
+83.99.206.106 1 1 4763 20260202194922
+83.99.206.8 1 1 6330 20260202202558
+83.99.206.254 6 6 42839 20260211124619
+162.120.184.27 1 1 7078 20260213083601
+173.252.70.30 0 2 48 
+188.49.16.240 6 72 2049652 20260207152419
+151.252.29.222 1 1 15437 20260217210429
+38.18.1.6 0 1 0 
+154.50.139.7 1 1 0 20260214101645
+83.99.206.117 12 12 82506 20260211131317
+83.99.206.20 1 1 5564 20260211122232
+69.171.231.2 0 1 24 
+83.99.206.78 1 1 7412 20260211123125
+5.82.30.191 12 130 5046494 20260214130136
+52.123.138.200 0 1 129798 
+83.99.206.90 19 19 151579 20260211124312
+93.158.93.111 1 1 14511 20260204055738
+83.99.206.236 4 4 25372 20260202203131
+83.99.206.43 1 1 6561 20260202200905
+83.99.206.239 8 8 53481 20260211125616
+83.99.206.110 1 1 8058 20260202195614
+83.99.206.229 1 1 5407 20260202202519
+135.232.20.104 11 115 4207918 20260208080507
+113.185.75.118 1 1 7217 20260201134617
+83.99.206.114 2 2 13547 20260211125928
+83.99.206.42 1 1 6510 20260211124903
+83.99.206.226 10 10 84714 20260211130359
+135.232.20.103 13 134 4428753 20260208080558
+41.46.138.81 12 117 4221964 20260211142247
+142.132.252.61 1 1 22913 20260217104735
+178.73.254.160 1 1 15444 20260204055738
+83.99.206.152 1 1 4762 20260202203236
+83.99.206.205 1 1 6803 20260202202836
+38.78.226.61 0 1 0 
+83.99.206.242 1 1 4763 20260202194943
+83.99.206.198 1 1 14227 20260202195316
+173.252.70.4 0 1 24 
+178.118.215.225 1 1 5630 20260209062121
+83.99.206.49 2 2 16407 20260211123945
+196.129.67.137 0 6 528689 
+167.86.178.100 18 133 4312932 20260204082924
+83.99.206.193 1 1 6504 20260202203218
+191.102.129.37 2 2 22914 20260218011105
+49.233.22.121 1 1 13514 20260218041014 20260218041014 /course/Become-a-Product-Manager
+38.18.24.254 0 1 0 
+52.123.138.160 0 2 259596 
+83.99.206.87 20 20 139966 20260211125309
+52.112.74.62 1 3 282527 20260210130058
+83.99.206.105 1 1 4778 20260202201216
+209.50.163.129 2 2 11011 20260211053716
+83.99.206.84 1 1 6335 20260211121634
+38.18.1.207 0 1 0 
+150.228.85.96 1 1 5410 20260209172934
+107.173.171.201 1 1 22918 20260203142751
+83.99.206.214 1 1 12757 20260202195252
+83.99.206.147 2 2 15293 20260211123655
+83.99.206.177 10 10 63623 20260211123648
+45.128.244.168 0 1 80245 
+83.99.206.103 2 2 14873 20260211123904
+52.112.103.72 1 4 412335 20260208080455
+69.171.231.29 0 1 24 
+83.99.206.184 7 7 49787 20260211125920
+83.99.206.56 1 1 7325 20260211130940
+83.99.206.69 1 1 6504 20260211124803
+162.120.187.212 2 2 27442 20260202084600
+83.99.206.170 5 5 36789 20260202200730
+196.138.71.34 5 5 21260 20260211100910
+83.99.206.174 1 1 6644 20260202195230
+134.199.66.170 8 8 770672 20260204082952
+83.99.206.235 1 1 11017 20260211122350
+38.78.226.116 0 1 0 
+83.99.206.10 1 1 8350 20260202201645
+5.198.251.128 1 1 21001 20260204055739
+83.99.206.160 1 1 4763 20260202194901
+83.99.206.0 11 11 75762 20260211122913
+104.131.66.149 1 1 13719 20260216114346
+38.18.24.108 1 1 0 20260213074640
+106.75.63.43 2 5 586002 20260207235102
+83.99.206.222 1 1 13731 20260202194824
+83.99.206.6 1 1 6504 20260202195857
+83.99.206.211 1 1 6443 20260202202817
+136.228.135.180 4 60 1162237 20260204111949
+83.99.206.24 2 2 15106 20260211125207
+83.99.206.186 1 1 5273 20260211130548
+38.18.24.168 0 1 0 
+185.142.229.123 1 1 22914 20260217210428
+83.99.206.159 3 3 17409 20260211125943
+66.249.68.4 1 1 5592 20260201005234
+104.37.46.91 0 1 0 
+193.186.4.145 2 2 20040 20260210035035
+83.140.248.204 1 1 22936 20260204055737
+104.37.46.168 0 1 0 
+43.255.122.6 2 2 45880 20260208115534
+38.18.1.160 1 1 0 20260216040055
+173.252.83.5 0 1 24 
+83.99.206.26 1 1 8061 20260202202023
+83.99.206.243 1 1 5564 20260202200927
+83.99.206.176 2 2 11804 20260202200037
+83.99.206.70 1 1 6990 20260202202144
+83.99.206.127 13 13 106728 20260211130712
+38.70.224.77 1 1 0 20260208045829
+45.128.246.157 0 1 127004 
+216.26.251.90 2 2 10987 20260205082840
+83.99.206.207 1 1 6518 20260202203917
+93.158.109.86 2 2 35507 20260217210431
+38.70.224.109 1 1 0 20260208100407
+83.99.206.95 1 1 5408 20260202202223
+83.99.206.120 1 1 5416 20260211122831
+38.18.1.195 1 1 0 20260209100659
+72.14.201.147 1 1 13721 20260202020117
+38.18.1.112 1 1 0 20260211112554
+66.249.68.6 1 1 5592 20260201011138
+159.65.85.62 1 2 152705 20260214113336
+205.147.17.5 2 2 11009 20260214091011
+83.99.206.36 18 18 129740 20260211131020
+83.99.206.219 1 1 4764 20260211122430
+83.99.206.130 1 1 6516 20260202202636
+216.26.230.149 2 2 10997 20260214142352
+38.18.24.98 0 1 0 
+38.70.224.62 0 1 0 
+185.143.12.22 1 1 22935 20260209051007
+83.99.206.102 3 3 20176 20260202195822
+173.252.87.59 0 1 24 
+END_VISITOR
+
+# Date - Pages - Hits - Bandwidth - Visits
+BEGIN_DAY 18
+20260201 5 7 300934 5
+20260202 153 408 13072588 49
+20260203 52 192 7393828 4
+20260204 169 914 28687206 13
+20260205 29 191 6315460 4
+20260206 1 1 5413 1
+20260207 9 78 2635702 3
+20260208 48 278 9219480 11
+20260209 39 147 2147155 7
+20260210 153 602 19812157 7
+20260211 183 531 11672005 44
+20260212 41 247 6513608 2
+20260213 2 2 7078 2
+20260214 18 145 5957192 5
+20260215 32 146 4657077 1
+20260216 2 3 143565 2
+20260217 7 9 386418 6
+20260218 5 5 47456 3
+END_DAY
+
+# Session range - Number of visits
+BEGIN_SESSION 6
+30s-2mn 16
+5mn-15mn 2
+15mn-30mn 9
+30mn-1h 12
+2mn-5mn 7
+0s-30s 121
+END_SESSION
+
+# URL - Pages - Bandwidth - Entry - Exit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_SIDER 116
+/getDefaultAvatar 287 500857 1 12
+/ 71 1540049 44 26
+/filemanager/jsonitems 34 8567 0 3
+/login 32 260626 9 12
+/upcoming_courses 30 198584 12 13
+/store/1/fonts/montserrat-regular.woff2 25 479300 0 0
+/store/1/fonts/montserrat-bold.woff2 23 448040 0 1
+/filemanager/folders 23 9131 0 0
+/store/1/fonts/montserrat-medium.woff2 23 443256 0 0
+/mix-manifest.json 22 1232 0 5
+/tags/upcoming-courses/python 2 10796 0 0
+/tags/courses/linux 2 11091 0 1
+/users/4/profile 2 13622 1 1
+/laravel-filemanager/upload 8 64 0 0
+/admin/categories 1 8032 0 0
+/users/1015/profile 5 48211 0 1
+/tags/courses/New+Live+System 3 16775 3 1
+/filemanager/errors 5 30 0 0
+/about-us 1 4748 1 0
+/upcoming_courses/Digital-Photography 3 26347 2 0
+/organizations 2 13830 0 0
+/categories/Academics/Math 3 19714 2 1
+/tags/courses/network 2 11093 1 1
+/categories/Business/Management 2 14118 0 0
+/reward-courses 2 13380 1 1
+/categories/Academics 4 120644 0 1
+/users/864/profile 2 13987 0 0
+/reviews/store-reply-comment 2 9529 1 2
+/users/859/profile 2 13536 1 1
+/assets/admin/fonts/vazir/Vazir-Bold.woff2 4 168288 0 0
+/tags/bundles/office 2 10919 0 1
+/tags/courses/os 2 11466 0 0
+/categories/Business/Communications 4 28349 2 2
+/categories/Development/Web-Development 4 27463 3 0
+/products 8 50419 2 1
+/register 1 12778 0 1
+/categories/Development/Game-Development 2 12762 0 0
+/categories/Health-and-Fitness 4 144426 2 2
+/categories/Lifestyle 2 13008 2 2
+/forget-password 2 15628 0 1
+/classes 13 94001 3 5
+/users/1016/profile 4 33391 3 3
+/certificate_validation 2 10752 1 0
+/admin/marketing 2 18098 0 0
+/wp-sitemap.xml 2 9524 1 1
+/admin 16 133357 0 0
+/filemanager/delete 6 36 0 0
+/admin/supports 1 8755 0 0
+/users/1050/profile 2 12887 1 1
+/users/863/profile 2 14652 2 1
+/tags/courses/Product+Manager 2 10818 1 1
+/users/868/profile 2 13890 0 0
+/admin/staffs 2 16638 0 0
+/meta.json 2 9492 0 0
+/contact 18 98948 11 10
+/products/reviews/store-reply-comment 2 9521 0 1
+/tags/courses/Live+Class 3 16770 1 1
+/tags/bundles/bundle 2 10931 0 0
+/admin/students 2 20460 0 0
+/products/Sherlock-Holmes-e-book 2 18708 1 1
+/categories/Business 2 13982 1 1
+/store/1/fonts/Vazir-Medium.woff2 8 345216 0 0
+/captcha/create 1 82 0 0
+/panel 3 31434 1 0
+/products/Where-the-Crawdads-Sing-e-book 4 50837 3 2
+/products/Painting-tools 2 19900 1 0
+/assets/admin/fonts/vazir/Vazir-Light.woff2 4 194208 0 0
+/instructors 2 13914 0 0
+/categories/Development 2 13287 2 1
+/course/Excel-from-Beginner-to-Advanced 4 71383 1 2
+/captcha/flat 1 4092 0 1
+/categories/Academics/Language 2 12685 0 0
+/pages/about 8 16206 7 6
+/admin/roles 1 7843 0 0
+/categories/Design 4 146141 1 2
+/assets/admin/fonts/vazir/Vazir-Medium.woff2 4 205136 0 0
+/filemanager 5 51462 0 0
+/admin/login 9 12385 2 0
+/tags/courses/managment 2 10818 0 0
+/products/Business-Software 2 20634 0 0
+/course/Learn-Linux-in-5-Days 2 27006 0 0
+/store/1/fonts/Vazir-Bold.woff2 8 348832 0 0
+/course/New-in-App-Live-System 4 52853 3 2
+/tags/courses/microsoft+excel 2 11144 0 1
+/users/1/profile 2 13600 1 1
+/tags/courses/Guitar+Masterclass 2 10829 1 2
+/tags/upcoming-courses/Digital+Photography 2 10814 2 2
+/tags/courses/excel+class 2 11129 1 1
+/assets/vendors/fontawesome/webfonts/fa-regular-400.woff2 5 68000 0 0
+/sitemap_index.xml 2 9524 1 1
+/tags/courses/Excel 2 11128 2 2
+/categories/Lifestyle/Beauty-and-Makeup 2 12740 1 0
+/categories/Lifestyle/Lifestyle 2 13010 1 2
+/categories/Business/Business-Strategy 2 13760 1 0
+/bundles/Microsoft-Office-Beginner-to-Expert-Bundle 4 52911 4 4
+/users/867/profile 2 14826 1 2
+/_debugbar/assets/stylesheets 1 120721 0 0
+/store/1/fonts/Vazir-Regular.woff2 8 341952 0 0
+/sitemap.xml 3 15980 2 2
+/categories/Development/Mobile-Development 2 12701 0 0
+/filemanager/rename 4 24 0 0
+/store/1/animated-header.json 20 508126 0 1
+/upcoming_courses/Python-for-Beginners 3 26993 0 0
+/course/New-Learning-Page 12 121584 6 5
+/instructor-finder 5 34978 1 0
+/bundles/reviews/store-reply-comment 2 9523 1 1
+/instructor-finder/wizard 2 9554 2 2
+/assets/admin/fonts/vazir/Vazir.woff2 4 151888 0 1
+/categories/Marketing 3 18982 2 2
+/tags/courses/Guitar 2 10829 0 0
+/categories/Academics/Science 2 12654 0 0
+/course/Become-a-Product-Manager 3 40572 1 0
+/_debugbar/assets/javascript 1 65734 0 0
+/assets/vendors/fontawesome/webfonts/fa-solid-900.woff2 8 641184 0 0
+/admin/users/groups 1 7799 0 0
+/tags/upcoming-courses/Photography 2 10806 1 0
+END_SIDER
