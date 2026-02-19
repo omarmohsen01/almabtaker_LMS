@@ -8,7 +8,13 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 */
 
+// National ID collection (before check_national_id middleware)
 Route::group(['namespace' => 'Panel', 'prefix' => 'panel', 'middleware' => ['impersonate', 'panel', 'share', 'check_maintenance', 'check_restriction']], function () {
+    Route::get('/national-id', 'NationalIdController@show');
+    Route::post('/national-id/store', 'NationalIdController@store');
+});
+
+Route::group(['namespace' => 'Panel', 'prefix' => 'panel', 'middleware' => ['impersonate', 'panel', 'share', 'check_maintenance', 'check_restriction', 'check_national_id']], function () {
 
     Route::get('/', 'DashboardController@dashboard');
     Route::post('/content-delete-request', 'ContentDeleteRequestController@store');

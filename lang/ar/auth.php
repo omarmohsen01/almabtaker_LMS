@@ -74,6 +74,15 @@ return [
     'verification_link_has_been_sent_to_your_email' => 'تم ارسال رابط التحقق للأيميل الحاص بك.',
     'login_failed_your_account_is_not_verified' => 'فشل تسجيل الدخول لم يتم التحقق من رقم الموبايل او الايميل.',
     'logout' => 'خروج',
-    'phone' => 'هاتف'
+    'phone' => 'هاتف',
+
+    'national_id' => 'رقم الهوية الوطنية / الإقامة',
+    'national_id_placeholder' => 'أدخل رقم الهوية الوطنية أو الإقامة المكون من 10 أرقام',
+    'national_id_hint' => 'يجب أن يكون 10 أرقام ويبدأ بـ 1 أو 2 أو 4.',
+    'national_id_invalid_format' => 'رقم الهوية يجب أن يكون 10 أرقام ويبدأ بـ 1 أو 2 أو 4.',
+    'national_id_required_title' => 'رقم الهوية مطلوب',
+    'national_id_required_description' => 'للامتثال لمتطلبات المركز الوطني للتعليم الإلكتروني، يرجى إدخال رقم الهوية الوطنية أو الإقامة قبل المتابعة.',
+    'save_national_id' => 'حفظ رقم الهوية',
+    'national_id_saved_successfully' => 'تم حفظ رقم الهوية بنجاح.',
 
 ];

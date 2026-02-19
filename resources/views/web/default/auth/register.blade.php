@@ -70,6 +70,20 @@
                         </div>
 
                         <div class="form-group">
+                            <label class="input-label" for="national_id">{{ trans('auth.national_id') }}:</label>
+                            <input name="national_id" type="text" value="{{ old('national_id') }}"
+                                   class="form-control @error('national_id') is-invalid @enderror"
+                                   placeholder="{{ trans('auth.national_id_placeholder') }}"
+                                   maxlength="10" pattern="[124]\d{9}" required dir="ltr">
+                            @error('national_id')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                            <small class="form-text text-muted">{{ trans('auth.national_id_hint') }}</small>
+                        </div>
+
+                        <div class="form-group">
                             <label class="input-label" for="password">{{ trans('auth.password') }}:</label>
                             <input name="password" type="password"
                                    class="form-control @error('password') is-invalid @enderror" id="password"

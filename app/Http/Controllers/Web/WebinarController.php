@@ -20,9 +20,11 @@ use App\Models\CourseLearning;
 use App\Models\WebinarChapter;
 use App\Models\WebinarReport;
 use App\Models\Webinar;
+use App\Services\NelcXapiService;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 
 class WebinarController extends Controller
@@ -811,6 +813,46 @@ class WebinarController extends Controller
                         $item => $item_id,
                         'created_at' => time()
                     ]);
+
+                    // NELC xAPI: Send watched/completed/progressed statements
+                    try {
+                        $nelcService = new NelcXapiService();
+                        $lmsUrl = config('nelc-xapi.lms_url');
+
+                        if ($item == 'file_id') {
+                            $file = File::find($item_id);
+                            if ($file) {
+                                $fileUrl = $lmsUrl . '/course/' . $course->slug . '/file/' . $file->id;
+                                if ($file->isVideo()) {
+                                    $duration = NelcXapiService::secondsToIso((int)($file->duration ?? 0));
+                                    $nelcService->sendWatched($user, $course, $file->id, $fileUrl, $file->title ?? 'Video', $file->description ?? '', true, $duration);
+                                } else {
+                                    $nelcService->sendCompletedLesson($user, $course, $file->id, $fileUrl, $file->title ?? 'File', $file->description ?? '');
+                                }
+                            }
+                        } elseif ($item == 'text_lesson_id') {
+                            $lesson = TextLesson::find($item_id);
+                            if ($lesson) {
+                                $lessonUrl = $lmsUrl . '/course/' . $course->slug . '/lesson/' . $lesson->id;
+                                $nelcService->sendCompletedLesson($user, $course, $lesson->id, $lessonUrl, $lesson->title ?? 'Lesson', $lesson->summary ?? '');
+                            }
+                        } elseif ($item == 'session_id') {
+                            $session = \App\Models\Session::find($item_id);
+                            if ($session) {
+                                $sessionUrl = $lmsUrl . '/course/' . $course->slug . '/session/' . $session->id;
+                                $duration = NelcXapiService::secondsToIso((int)($session->duration ?? 0));
+                                $nelcService->sendAttended($user, $course, $session->id, $sessionUrl, $session->title ?? 'Session', $session->description ?? '', $duration);
+                            }
+                        }
+
+                        // Send progress
+                        $progress = $course->getProgress();
+                        if ($progress !== null) {
+                            $nelcService->sendProgressed($user, $course, (float)$progress);
+                        }
+                    } catch (\Exception $e) {
+                        Log::error('NELC learningStatus hook error: ' . $e->getMessage());
+                    }
                 }
 
                 // check for certificate
@@ -869,6 +911,15 @@ class WebinarController extends Controller
                     'total_amount' => 0,
                     'created_at' => time(),
                 ]);
+
+                // NELC xAPI: registered + initialized for point purchase
+                try {
+                    $nelcService = new NelcXapiService();
+                    $nelcService->sendRegistered($user, $course);
+                    $nelcService->sendInitialized($user, $course);
+                } catch (\Exception $e) {
+                    Log::error('NELC buyWithPoint hook error: ' . $e->getMessage());
+                }
 
                 RewardAccounting::makeRewardAccounting($user->id, $course->points, 'withdraw', null, false, RewardAccounting::DEDUCTION);
 
