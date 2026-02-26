@@ -166,6 +166,18 @@ class MakeCertificate
             $user = $certificate->student;
 
             $userCertificate = $this->saveCourseCertificate($user, $course);
+            
+            // Ensure NELC statements are sent even if certificate already existed
+            // (in case they weren't sent during creation)
+            // The send methods already check for duplicates internally, so safe to call
+            try {
+                $nelcService = new NelcXapiService();
+                $nelcService->sendCompletedCourse($user, $course);
+                $nelcService->sendEarned($user, $course, $userCertificate);
+            } catch (\Exception $e) {
+                Log::error('NELC certificate view hook error: ' . $e->getMessage());
+            }
+            
             $locale = app()->getLocale();
             $body = (!empty($template->translate($locale)) and !empty($template->translate($locale)->body)) ? $template->translate($locale)->body : $template->body;
 
@@ -269,10 +281,18 @@ class MakeCertificate
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
         $result = curl_exec($ch);
-        if (curl_errno($ch)) {
-            echo 'Error:' . curl_error($ch);
-        }
+        $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        $curlError = curl_errno($ch) ? curl_error($ch) : null;
         curl_close($ch);
+        
+        if ($curlError) {
+            Log::error('Certificate API CURL Error', [
+                'error' => $curlError,
+                'certificate_id' => $certificate->id,
+                'http_code' => $httpCode
+            ]);
+        }
+        
         $res = json_decode($result, true);
 
         if (!empty($res['url'])) {
@@ -292,10 +312,27 @@ class MakeCertificate
             );
 
             return response()->download($url, "certificate.png", $headers);
-        } elseif (!empty($res['error']) and $res['error'] == "Plan limit exceeded") {
-            $error = trans('update.plan_limit_exceeded');
+        } elseif (!empty($res['error'])) {
+            Log::error('Certificate API Error', [
+                'error' => $res['error'],
+                'response' => $res,
+                'certificate_id' => $certificate->id,
+                'http_code' => $httpCode
+            ]);
+            
+            if ($res['error'] == "Plan limit exceeded") {
+                $error = trans('update.plan_limit_exceeded');
+            } else {
+                $error = trans("update.bad_request") . " (API: {$res['error']})";
+            }
         } else {
-            $error = trans("update.bad_request");
+            Log::error('Certificate API Unknown Error', [
+                'response' => $result,
+                'certificate_id' => $certificate->id,
+                'http_code' => $httpCode,
+                'curl_error' => $curlError
+            ]);
+            $error = trans("update.bad_request") . ($curlError ? " (CURL: {$curlError})" : " (HTTP: {$httpCode})");
         }
 
         $toastData = [

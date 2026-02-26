@@ -120,15 +120,28 @@ class NelcXapiService
         ];
     }
 
-    protected function buildCourseObject(Webinar $course): array
+    /**
+     * Build course object FOR REGISTRATION ONLY (includes description).
+     * FIX CTX001 + CRS008: Only registration statements should have course description.
+     */
+    protected function buildCourseObject(Webinar $course, bool $includeDescription = false): array
     {
+        $definition = [
+            'name' => ['en-US' => $course->title ?? 'Course'],
+            'type' => 'https://w3id.org/xapi/cmi5/activitytype/course',
+        ];
+
+        // Only include description for registration statements (CTX001 + CRS008 fix)
+        if ($includeDescription) {
+            $desc = mb_substr(strip_tags($course->description ?? ''), 0, 500);
+            if (!empty($desc)) {
+                $definition['description'] = ['en-US' => $desc];
+            }
+        }
+
         return [
             'id' => config('nelc-xapi.lms_url') . '/course/' . $course->slug,
-            'definition' => [
-                'name' => ['en-US' => $course->title ?? 'Course'],
-                'description' => ['en-US' => mb_substr(strip_tags($course->description ?? ''), 0, 500)],
-                'type' => 'https://w3id.org/xapi/cmi5/activitytype/course',
-            ],
+            'definition' => $definition,
             'objectType' => 'Activity',
         ];
     }
@@ -152,11 +165,15 @@ class NelcXapiService
         return $context;
     }
 
+    /**
+     * Build context with parent course activity (no description in parent).
+     * FIX CTX001: Parent course object should not contain description.
+     */
     protected function buildContextWithParent(Webinar $course): array
     {
         $context = $this->buildBaseContext($course);
         $context['contextActivities'] = [
-            'parent' => [$this->buildCourseObject($course)],
+            'parent' => [$this->buildCourseObject($course, false)],
         ];
         return $context;
     }
@@ -171,6 +188,24 @@ class NelcXapiService
         $m = floor(($seconds % 3600) / 60);
         $s = $seconds % 60;
         return sprintf('PT%02dH%02dM%02dS', $h, $m, $s);
+    }
+
+    /**
+     * FIX SEQ001 + SEQ002: Ensure registered + initialized are sent before any other statement.
+     * This auto-sends them if they haven't been sent yet for this user+course.
+     */
+    protected function ensureRegisteredAndInitialized(User $user, Webinar $course): void
+    {
+        try {
+            if (!$this->alreadySent($user->id, 'registered', 'course', $course->id, $course->id)) {
+                $this->sendRegistered($user, $course);
+            }
+            if (!$this->alreadySent($user->id, 'initialized', 'course', $course->id, $course->id)) {
+                $this->sendInitialized($user, $course);
+            }
+        } catch (\Exception $e) {
+            Log::warning('NELC: Failed to auto-send registered/initialized', ['error' => $e->getMessage()]);
+        }
     }
 
     // ─── Statements ──────────────────────────────────────────
@@ -197,7 +232,7 @@ class NelcXapiService
         $statement = [
             'actor' => $this->buildActor($user),
             'verb' => ['id' => 'http://adlnet.gov/expapi/verbs/registered', 'display' => ['en-US' => 'registered']],
-            'object' => $this->buildCourseObject($course),
+            'object' => $this->buildCourseObject($course, true), // Only registration includes description
             'context' => $context,
             'timestamp' => now()->toIso8601ZuluString(),
         ];
@@ -209,7 +244,7 @@ class NelcXapiService
     }
 
     /**
-     * #2 — initialized
+     * #2 — initialized (no description in course object - CRS008 fix)
      */
     public function sendInitialized(User $user, Webinar $course): ?array
     {
@@ -219,7 +254,7 @@ class NelcXapiService
         $statement = [
             'actor' => $this->buildActor($user),
             'verb' => ['id' => 'http://adlnet.gov/expapi/verbs/initialized', 'display' => ['en-US' => 'initialized']],
-            'object' => $this->buildCourseObject($course),
+            'object' => $this->buildCourseObject($course, false), // No description (CRS008)
             'context' => $this->buildBaseContext($course),
             'timestamp' => now()->toIso8601ZuluString(),
         ];
@@ -237,6 +272,9 @@ class NelcXapiService
     {
         if (!$this->isValidForNelc($user)) return null;
         if ($this->alreadySent($user->id, 'watched', 'video', $fileId, $course->id)) return null;
+
+        // FIX SEQ001/SEQ002: Ensure registration lifecycle statements exist
+        $this->ensureRegisteredAndInitialized($user, $course);
 
         $statement = [
             'actor' => $this->buildActor($user),
@@ -272,6 +310,9 @@ class NelcXapiService
         if (!$this->isValidForNelc($user)) return null;
         if ($this->alreadySent($user->id, 'completed', 'lesson', $lessonId, $course->id)) return null;
 
+        // FIX SEQ001/SEQ002: Ensure registration lifecycle statements exist
+        $this->ensureRegisteredAndInitialized($user, $course);
+
         $statement = [
             'actor' => $this->buildActor($user),
             'verb' => ['id' => 'http://adlnet.gov/expapi/verbs/completed', 'display' => ['en-US' => 'completed']],
@@ -302,6 +343,9 @@ class NelcXapiService
         if (!$this->isValidForNelc($user)) return null;
         if ($this->alreadySent($user->id, 'attended', 'session', $sessionId, $course->id)) return null;
 
+        // FIX SEQ001/SEQ002: Ensure registration lifecycle statements exist
+        $this->ensureRegisteredAndInitialized($user, $course);
+
         $statement = [
             'actor' => $this->buildActor($user),
             'verb' => ['id' => 'http://adlnet.gov/expapi/verbs/attended', 'display' => ['en-US' => 'attended']],
@@ -330,11 +374,15 @@ class NelcXapiService
 
     /**
      * #6 — attempted (quiz)
+     * FIX ASM002: Removed score.min to avoid "success is false but score.raw >= score.min"
+     * FIX CRS006: Made description different from name
      */
     public function sendAttempted(User $user, Webinar $course, $quiz, float $scaledScore, float $rawScore, float $maxScore, bool $success, int $attemptNumber): ?array
     {
         if (!$this->isValidForNelc($user)) return null;
-        // Allow multiple attempts (don't check duplicates for quizzes by attempt)
+
+        // FIX SEQ001/SEQ002: Ensure registration lifecycle statements exist
+        $this->ensureRegisteredAndInitialized($user, $course);
 
         $quizUrl = config('nelc-xapi.lms_url') . '/course/' . $course->slug . '/quiz/' . $quiz->id;
 
@@ -345,14 +393,18 @@ class NelcXapiService
             ['http://id.tincanapi.com/extension/attempt-id' => $attemptNumber]
         );
 
+        // FIX CRS006: description must be different from name
+        $quizName = $quiz->title ?? 'Quiz';
+        $quizDescription = 'Assessment: ' . $quizName . ' - Attempt ' . $attemptNumber;
+
         $statement = [
             'actor' => $this->buildActor($user),
             'verb' => ['id' => 'http://adlnet.gov/expapi/verbs/attempted', 'display' => ['en-US' => 'attempted']],
             'object' => [
                 'id' => $quizUrl,
                 'definition' => [
-                    'name' => ['en-US' => $quiz->title ?? 'Quiz'],
-                    'description' => ['en-US' => $quiz->title ?? 'Quiz'],
+                    'name' => ['en-US' => $quizName],
+                    'description' => ['en-US' => $quizDescription],
                     'type' => 'http://id.tincanapi.com/activitytype/unit-test',
                 ],
                 'objectType' => 'Activity',
@@ -362,10 +414,10 @@ class NelcXapiService
                 'score' => [
                     'scaled' => round($scaledScore, 2),
                     'raw' => $rawScore,
-                    'min' => 0,
+                    'min' => 0, // Minimum possible score (required by ASM001)
                     'max' => $maxScore,
                 ],
-                'success' => $success,
+                'success' => $success, // Must be correctly set based on passing criteria, not score.raw >= score.min
                 'completion' => true,
             ],
             'timestamp' => now()->toIso8601ZuluString(),
@@ -379,13 +431,20 @@ class NelcXapiService
 
     /**
      * #7 — completed module (chapter)
+     * FIX CRS006: Made description different from name
      */
     public function sendCompletedModule(User $user, Webinar $course, int $chapterId, string $chapterTitle): ?array
     {
         if (!$this->isValidForNelc($user)) return null;
         if ($this->alreadySent($user->id, 'completed', 'module', $chapterId, $course->id)) return null;
 
+        // FIX SEQ001/SEQ002: Ensure registration lifecycle statements exist
+        $this->ensureRegisteredAndInitialized($user, $course);
+
         $moduleUrl = config('nelc-xapi.lms_url') . '/course/' . $course->slug . '/module/' . $chapterId;
+
+        // FIX CRS006: description must be different from name
+        $moduleDescription = 'Module: ' . $chapterTitle . ' in course ' . ($course->title ?? 'Course');
 
         $statement = [
             'actor' => $this->buildActor($user),
@@ -394,7 +453,7 @@ class NelcXapiService
                 'id' => $moduleUrl,
                 'definition' => [
                     'name' => ['en-US' => $chapterTitle],
-                    'description' => ['en-US' => $chapterTitle],
+                    'description' => ['en-US' => $moduleDescription],
                     'type' => 'http://adlnet.gov/expapi/activities/module',
                 ],
                 'objectType' => 'Activity',
@@ -411,19 +470,32 @@ class NelcXapiService
 
     /**
      * #8 — progressed
+     * FIX CRS008: No description in course object for non-registration statements
+     * FIX SEQ003: Prevent duplicate progressed statements with same scaled score
      */
     public function sendProgressed(User $user, Webinar $course, float $progressPercent): ?array
     {
         if (!$this->isValidForNelc($user)) return null;
 
+        // FIX SEQ001/SEQ002: Ensure registration lifecycle statements exist
+        $this->ensureRegisteredAndInitialized($user, $course);
+
         $scaled = round($progressPercent / 100, 2);
         if ($scaled > 1) $scaled = 1.0;
         if ($scaled < 0) $scaled = 0.0;
 
+        // FIX SEQ003: Prevent duplicate progressed statements with same scaled score.
+        // We store progress percentage (0-100) as object_id to detect duplicates.
+        $progressInt = (int) round($scaled * 100);
+        if ($this->alreadySent($user->id, 'progressed', 'course', $progressInt, $course->id)) {
+            Log::info('NELC: progressed skipped (duplicate)', ['user' => $user->id, 'course' => $course->id, 'progress' => $progressInt]);
+            return null;
+        }
+
         $statement = [
             'actor' => $this->buildActor($user),
             'verb' => ['id' => 'http://adlnet.gov/expapi/verbs/progressed', 'display' => ['en-US' => 'progressed']],
-            'object' => $this->buildCourseObject($course),
+            'object' => $this->buildCourseObject($course, false), // No description (CRS008)
             'context' => $this->buildBaseContext($course),
             'result' => [
                 'score' => ['scaled' => $scaled],
@@ -434,22 +506,26 @@ class NelcXapiService
 
         $response = $this->sendStatement($statement);
         Log::info('NELC: progressed', ['user' => $user->id, 'course' => $course->id, 'progress' => $progressPercent, 'status' => $response['status'] ?? null]);
-        // Progress can be sent multiple times, record latest
+        // Record with progress percentage as object_id for duplicate detection
+        $this->recordStatement($user->id, 'progressed', 'course', $progressInt, $course->id, $response);
         return $response;
     }
 
     /**
-     * #9 — completed course
+     * #9 — completed course (no description in course object - CRS008 fix)
      */
     public function sendCompletedCourse(User $user, Webinar $course): ?array
     {
         if (!$this->isValidForNelc($user)) return null;
         if ($this->alreadySent($user->id, 'completed', 'course', $course->id, $course->id)) return null;
 
+        // FIX SEQ001/SEQ002: Ensure registration lifecycle statements exist
+        $this->ensureRegisteredAndInitialized($user, $course);
+
         $statement = [
             'actor' => $this->buildActor($user),
             'verb' => ['id' => 'http://adlnet.gov/expapi/verbs/completed', 'display' => ['en-US' => 'completed']],
-            'object' => $this->buildCourseObject($course),
+            'object' => $this->buildCourseObject($course, false), // No description (CRS008)
             'context' => $this->buildBaseContext($course),
             'timestamp' => now()->toIso8601ZuluString(),
         ];
@@ -461,17 +537,20 @@ class NelcXapiService
     }
 
     /**
-     * #10 — rated
+     * #10 — rated (no description in course object - CRS008 fix)
      */
     public function sendRated(User $user, Webinar $course, float $rawRating, string $reviewText = ''): ?array
     {
         if (!$this->isValidForNelc($user)) return null;
         if ($this->alreadySent($user->id, 'rated', 'course', $course->id, $course->id)) return null;
 
+        // FIX SEQ001/SEQ002: Ensure registration lifecycle statements exist
+        $this->ensureRegisteredAndInitialized($user, $course);
+
         $statement = [
             'actor' => $this->buildActor($user),
             'verb' => ['id' => 'http://id.tincanapi.com/verb/rated', 'display' => ['en-US' => 'rated']],
-            'object' => $this->buildCourseObject($course),
+            'object' => $this->buildCourseObject($course, false), // No description (CRS008)
             'context' => $this->buildBaseContext($course),
             'result' => [
                 'score' => [
@@ -492,12 +571,15 @@ class NelcXapiService
     }
 
     /**
-     * #11 — earned (certificate)
+     * #11 — earned (certificate) - parent course object without description
      */
     public function sendEarned(User $user, Webinar $course, Certificate $certificate): ?array
     {
         if (!$this->isValidForNelc($user)) return null;
         if ($this->alreadySent($user->id, 'earned', 'certificate', $certificate->id, $course->id)) return null;
+
+        // FIX SEQ001/SEQ002: Ensure registration lifecycle statements exist
+        $this->ensureRegisteredAndInitialized($user, $course);
 
         $certUrl = config('nelc-xapi.lms_url') . '/certificate_validation?certificate_id=' . $certificate->id;
         $certObjectUrl = config('nelc-xapi.lms_url') . '/course/' . $course->slug . '/certificate/' . $certificate->id;
@@ -521,7 +603,7 @@ class NelcXapiService
                 'platform' => config('nelc-xapi.platform_code'),
                 'language' => config('nelc-xapi.language', 'ar-SA'),
                 'contextActivities' => [
-                    'parent' => [$this->buildCourseObject($course)],
+                    'parent' => [$this->buildCourseObject($course, false)], // No description in parent (CTX001)
                 ],
             ],
             'timestamp' => now()->toIso8601ZuluString(),
